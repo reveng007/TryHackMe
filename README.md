@@ -123,7 +123,7 @@ root/.cache/
 root/.cache/motd.legal-displayed
 root/.profile
 ```
-### Now within "_root/_", root.txt is present.
+* [x] Now within "_root/_", root.txt is present. Got the final one!!
 > We could have also performed the same thing with shadow file just like root/
 > We then should have taken the root password from shadow file by just using cat command.
 > Although this method will take another extra step to escalate.
