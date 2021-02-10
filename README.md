@@ -160,5 +160,5 @@ root/.profile
 ### We could have also performed the same thing with shadow file just like root/
 ### We then should have taken the root password from shadow file by just using cat command.
 ### Then just copy the root hash and crack it with john.
-### Though this method will take another extra step to escalate.
+### Although this method will take another extra step to escalate.
 ------------------------------------------------------
