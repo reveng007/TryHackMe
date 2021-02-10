@@ -3,7 +3,7 @@
 -----------------------------------
 -----------------------------------
 
-## According to THM room:
+## According to THM room instruction:
 ### Start at port 1337 and enumerate your way. Good luck.
 
 ### That means we have to scan port 1337 first, aiming to get some hint.
