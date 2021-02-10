@@ -92,6 +92,7 @@ do
 done
 ```
 We got:
+&nbsp;
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/ssh_port_entry.png?raw=true)
 
 ### We can see that on port 3333, ssh was open...
