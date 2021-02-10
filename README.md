@@ -3,9 +3,7 @@
 -----------------------------------
 -----------------------------------
 
-#### This room took me several hours figure out, "What am I gonna do?"
-#### Nothing was working correctly at first. But eventually I did it.
-#### Anyways,lets dive right in...
+#### This room took me several hours figure out, "What am I gonna do?" Nothing was working correctly at first. But eventually I did it. Anyways,lets dive right in...
 
 ## According to THM room instruction:
 ### Start at port 1337 and enumerate your way. Good luck.
