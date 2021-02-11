@@ -27,15 +27,14 @@ X1Uy
 
 ### 1. Which of the above files are owned by the best-group group(enter the answer separated by spaces in alphabetical order)
 
-```diff
-+ new-user@ip-10-10-88-51 ~]$ find / -group best-group 2> /dev/null
+```
+[new-user@ip-10-10-88-51 ~]$ find / -group best-group 2> /dev/null
 
 ```
 ### 6. Which file is executable by everyone?
 
-```diff
-
-+ #!/bin/bash
+```
+#!/bin/bash
 
 file_names='8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy'
 
@@ -49,21 +48,21 @@ done
 
 ### 5. Which file's owner has an ID of 502?
 
-```diff
-+ [new-user@ip-10-10-88-51 home]$ grep '502' /etc/passwd
+```
+[new-user@ip-10-10-88-51 home]$ grep '502' /etc/passwd
 
-:arrow_right_hook:
+----->
 
-+ [new-user@ip-10-10-88-51 home]$ find / -user newer-user 2> /dev/null
+[new-user@ip-10-10-88-51 home]$ find / -user newer-user 2> /dev/null
 
-:arrow_right_hook:
+----->
 
 ```
 
 ### 4. Which file contains 230 lines?
 
-```diff
-+ #!/bin/bash
+```
+#!/bin/bash
 
 file_names='8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy'
 
@@ -78,9 +77,9 @@ done
 ### But for some reason "_bny0_" didn't show up...
 
 
-```diff
+```
 
-+ #!/bin/bash
+#!/bin/bash
 file_names='8V2L bny0 c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy'
 for name in $file_names
 do
@@ -102,9 +101,9 @@ done
 ## So I made another (aiming for inverting the logic ) ---> Which will not be shown are to be considered as the answer and also transferred "_bny0_" to last in list to avoid confusion.
 
 
-```diff
+```
 
-+ #!/bin/bash
+#!/bin/bash
 
 file_names='8V2L c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy bny0'
 
@@ -120,9 +119,9 @@ done
 ```
 ### OUTPUT:
 
-```diff
+```
 
-+ [new-user@ip-10-10-88-51 ~]$ bash pattern_matching.sh 
+[new-user@ip-10-10-88-51 ~]$ bash pattern_matching.sh 
 
 209 /etc/8V2L
 209 /mnt/c4ZX
@@ -136,14 +135,15 @@ done
 209 /home/v2Vb
 209 /X1Uy
 ^C
+
 [new-user@ip-10-10-88-51 ~]$
 
 ```
 
 ### 2. Which of these files contain an IP address?
 
-```diff
-+ #!/bin/bash
+```
+#!/bin/bash
 
 file_names='8V2L c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy bny0'
 
@@ -163,8 +163,8 @@ done
 
 ### 3. Which file has the SHA1 hash of 9d54da7584015647ba052173b84d45e8007eba94
 
-```diff
-+ #!/bin/bash
+```
+#!/bin/bash
 
 file_names='8V2L c4ZX D8B3 FHl1 oiMO PFbD rmfX SRSq uqyw v2Vb X1Uy bny0'
 
@@ -193,8 +193,8 @@ done
 ```
 ### This gave me no result .... :confused:
 
-```diff
-+[new-user@ip-10-10-88-51 ~]$ bash pattern_matching.sh 
+```
+[new-user@ip-10-10-88-51 ~]$ bash pattern_matching.sh 
 Nope1
 Nope2
 Nope3
@@ -207,12 +207,14 @@ Nope9
 Nope10
 Nope11
 ^C
-+[new-user@ip-10-10-88-51 ~]$
+
+[new-user@ip-10-10-88-51 ~]$
+
 ```
 ### I researched a bit on google, that how to pick sha1sum from files along with find command.
 
 ```
-+ #!/bin/bash
+#!/bin/bash
 
 hash=9d54da7584015647ba052173b84d45e8007eba94
 
@@ -239,7 +241,7 @@ done
 ### Now Got the result..... :100:
 
 ```
-+ [new-user@ip-10-10-76-223 ~]$ bash pat.sh 
+[new-user@ip-10-10-76-223 ~]$ bash pat.sh 
 
 Nope1
 9d54da7584015647ba052173b84d45e8007eba94 /mnt/c4ZX
@@ -254,5 +256,5 @@ Nope10
 Nope11
 Nope12
 
-+ [new-user@ip-10-10-76-223 ~]$
 ```
+
