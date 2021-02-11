@@ -1,4 +1,4 @@
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/ServerfromHell.jpeg?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/ServerfromHell.jpeg?raw=true)
 ## TryHackMe : The Server From Hell
 -------------------------------------
 -------------------------------------
@@ -10,18 +10,18 @@
 
 ## 1.
 ### So, we scanned with nmap:
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/1.nmap.result.port1337.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/1.nmap.result.port1337.png?raw=true)
 ### The banner has a line:
 "_Legend says he's hiding in the first 100 ports_"
 ## 2.
 ### So, we will scan 1st 100 ports:
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/2.nmap_1st_100_ports.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/2.nmap_1st_100_ports.png?raw=true)
 ### Here, we can see 12345, in every port (from 1 to 100)
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/2.nmap_1st_100_ports_grep.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/2.nmap_1st_100_ports_grep.png?raw=true)
 > We can see a nice face got revealed (i.e. we are doing things right, this thing was made intensional)
 ## 3.
 ### Then, We will scan port 12345
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/3.nmap_port_12345.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/3.nmap_port_12345.png?raw=true)
 ### Service is probably netbus which is open.
 ### I did a bit research on netbus on wiki :
 ### https://en.wikipedia.org/wiki/NetBus
@@ -32,27 +32,27 @@
 $ nc <ip> 12345
 ```
 #### we got this:
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/4.nc_12345.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/4.nc_12345.png?raw=true)
 ## 4.
 ### We got a hint that NFS is misconguired.
 > NFS, SMB or AFS(apple filing protocol) all are NAS(Network Attached Storage)
 ### After googling, I found this:
 ### https://www.hackingarticles.in/linux-privilege-escalation-using-misconfigured-nfs/
 ### Here, I came to know how to exploit misconfigured NFS.
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/5.showmount_usage.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/5.showmount_usage.png?raw=true)
 ## 5.
 ### So now lets mount it on any other location (Preferrably on /temp directory)
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/mounting_nfs.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/mounting_nfs.png?raw=true)
 ## 6.
 ### Now we got a zip file which is encrypted.
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/locked_zip.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/locked_zip.png?raw=true)
 ### So, now we have to crack it:
 ### I actually did the cracking portion with both john and fcrackzip
 > I saw some of the write ups, all of them used fcrackzip, so I tried both.
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/john_did.png?raw=true)
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/fcrackzip_worked.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/john_did.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/fcrackzip_worked.png?raw=true)
 ### So, now we got the 'pass' for the zip file.
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/got_1st_flag.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/got_1st_flag.png?raw=true)
 * [x] Voilà, got the 1st flag!!
 ## 7.
 ### We also got a hint.txt ----> 2500-4500
@@ -67,7 +67,7 @@ do
 done
 ```
 ### Hell yaah!! We got a shell.
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe-The-Server-From-Hell/blob/main/images/ssh_port_entry.png?raw=true)
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/ssh_port_entry.png?raw=true)
 ### We can see that on port 3333, ssh was open...
 ### Now we can see that we got a shell, but it is not bash or any other normal shell. After a quick Google search, I came to know this is a ruby shell.
 ### To get bash shell:
