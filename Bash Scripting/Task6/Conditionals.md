@@ -36,25 +36,25 @@ fi
 |                |                                                                   |
 |     -ne        |  Checks if the value of two operands are equal or not; if values  | 
 |                |   are not equal, then the condition becomes true.                 |
-|                |      |                                                            |
-|		 |      |----->  (  !=  ===> True )                                  |
+|                |                                                                   |
+|		 |           (  !=  ===> True )                                      |
 |                |                                                                   | 
 |     -gt        |  Checks if the value of left operand is greater than the value of | 
 |                |  right operand; if yes, then the condition becomes true.          |
-|                |    |                                                              |
-|                |    |----->  (  left >= right  ====> True    )                     |
+|                |                                                                   |
+|                |             (  left >= right  ====> True    )                     |
 |                |                                                                   | 
 |      -lt       |  Checks if the value of left operand is less than the value of    |
 |                |  right operand; if yes, then the condition becomes true.          |
-|                |   |                                                               | 
-|                |   |----->   (  left <= right  =====> False  )                     |
+|                |                                                                   | 
+|                |             (  left <= right  =====> False  )                     |
 |                |                                                                   |
 |      -ge       |  Checks if the value of left operand is greater than or equal to  | 
 |                |  the value of right operand; if yes, then the condition becomes   | 
-|                |  true.                     |                                      |
-|                |                            |---->  (  left > right  ===> True  )  |
+|                |  true.                                                            |
+|                |           (  left > right  ===> True  )                           |
 |                |                                                                   |
-|      -gt       |   ( left  < right  =====> True )                                  |
+|      -le       |         ( left  < right  =====> True )                            |
 
 
 ### Lets do this,
