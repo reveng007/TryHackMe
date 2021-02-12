@@ -1,0 +1,52 @@
+
+Continuing where we left earlier,
+
+-- Find names of all employees who have
+-- sold over 30,000 to a single client
+
+SELECT employee.first_name, employee.last_name
+FROM employee
+WHERE employee.emp_id IN (
+	
+	SELECT works_with.emp_id
+	FROM works_with
+	WHERE works_with.total_sales > 30000
+);
+
+
++--------+
+| emp_id |
++--------+
+|    102 |
+|    105 |
+|    105 |
+|    105 |
++--------+
+4 rows in set (0.001 sec)
+
+
+-- Find all clients who are handled by the branch
+-- that MIcheal Scott manages
+-- Assume you know Michael's ID
+
+
+SELECT client.client_name
+FROM client
+WHERE client.branch_id = (
+	
+	SELECT branch.branch_id
+	FROM branch
+	WHERE branch.mgr_id = 102
+);
+
+
++---------------------+
+| client_name         |
++---------------------+
+| Dunmore Highschool  |
+| Lackawana Country   |
+| Scranton Whitepages |
+| FedEx               |
++---------------------+
+4 rows in set (0.001 sec)
+

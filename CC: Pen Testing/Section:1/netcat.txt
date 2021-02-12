@@ -1,0 +1,7 @@
+How do you specify which program to execute after you connect to a host(One of the most infamous)?
+
+---> -e
+
+How do you connect to udp ports ?
+
+----> -u

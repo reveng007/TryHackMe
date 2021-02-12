@@ -1,0 +1,10 @@
+All these are written in Ethical Hacking Copy -------->
+
+Verbose Info about NSE script:
+
+A full list of scripts and their corresponding arguments (along with example use cases) can be found
+here : https://nmap.org/nsedoc/
+
+What optional argument can the ftp-anon.nse script take?
+
+--> Seen from https://nmap.org/nsedoc/scripts/ftp-anon.html ----> maxlist 

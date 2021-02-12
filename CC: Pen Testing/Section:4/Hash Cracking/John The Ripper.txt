@@ -1,0 +1,56 @@
+
+John The Ripper(jtr) is one of the best hash cracking tools available. It supports numerous formats of hashes and is extremely easy to use, while having a lot of options for customization.
+
+
+Note: There are multiple variations of jtr out there. For this task the version that comes pre-installed on kali will be used
+
+Note 2: All hashes can be cracked with rockyou.txt
+
+We can use hash-id to identify probable hash value : hash-id <hash>
+
+
+1. What flag let's you specify which wordlist to use? 
+
+---------> -wordlist
+
+2. What flag lets you specify which hash format(Ex: MD5,SHA1 etc.) to use?   
+
+---------> -format
+
+3. How do you specify which rule to use?
+
+---------> -rules
+
+4. Crack this hash: 5d41402abc4b2a76b9719d911017c592
+   Type: MD5
+
+---------> john -format=raw-md5 hash.txt -wordlist=/usr/share/wordlists/rockyou.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-MD5 [MD5 256/256 AVX2 8x3])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Press 'q' or Ctrl-C to abort, almost any other key for status
+-----
+hello            (?)
+-----
+1g 0:00:00:00 DONE (2021-01-27 14:23) 3.125g/s 1200p/s 1200c/s 1200C/s 123456..michael1
+Use the "--show --format=Raw-MD5" options to display all of the cracked passwords reliably
+Session completed
+
+5. Crack this hash: 5d41402abc4b2a76b9719d911017c592
+   Type: MD5 
+
+-------> john -format=raw-sha1 hash.txt -wordlist=/usr/share/wordlists/rockyou.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-SHA1 [SHA1 256/256 AVX2 8x])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Press 'q' or Ctrl-C to abort, almost any other key for status
+--------
+password         (?)
+---------
+1g 0:00:00:00 DONE (2021-01-27 14:28) 3.333g/s 26.66p/s 26.66c/s 26.66C/s 123456..rockyou
+Use the "--show --format=Raw-SHA1" options to display all of the cracked passwords reliably
+Session completed
+
+

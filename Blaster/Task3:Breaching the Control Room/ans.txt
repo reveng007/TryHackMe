@@ -1,0 +1,34 @@
+
+Now that we've gained access to our target system, let's see if we can find a way to escalate. To start, let's scout around the system to see if we can find anything of interest.
+
+
+1. When enumerating a machine, it's often useful to look at what the user was last doing. Look around the machine and see if you can find the CVE which was researched on this server. What CVE was it?
+
+
+HINT: Sometimes looking at the history in a user's web browser can be very insightful.
+
+----> CVE-2019-1388
+
+2. Looks like an executable file is necessary for exploitation of this vulnerability and the user didn't really clean up very well after testing it. What is the name of this executable?
+
+----> hhupd
+
+3. Research vulnerability and how to exploit it. Exploit it now to gain an elevated terminal!
+
+
+----> See: https://www.youtube.com/watch?v=3BQKpPNlTSo 
+
+
+There is a vulnerability in the software where it runs using system privileges. When you are clicking these links, it is as if the system authority is functioning.  Clicking the Certificate link above, it is actually the system authority opening the browser here.  Click ok and exit out of everything, and you will see a Internet Explorer open up. 
+
+
+4. Now that we've spawned a terminal, let's go ahead and run the command 'whoami'. What is the output of running this?
+
+---->  nt authority\system
+
+5. Now that we've confirmed that we have an elevated prompt, read the contents of root.txt on the Administrator's desktop. What are the contents? Keep your terminal up after exploitation so we can use it in task four!
+
+
+----> THM{COIN_OPERATED_EXPLOITATION} 
+
+

@@ -1,0 +1,125 @@
+
+Continuing where we left earlier,
+
+
+S1:
+
+-- Find all clients and order them by salary
+
+SELECT * FROM employee
+ORDER BY salary;
+
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    102 | Michael    | Scott     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.002 sec)
+
+
+-- Find all clients and order them by sex and then name
+
+SELECT * FROM employee
+ORDER BY sex, first_name, last_name;
+
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    102 | Michael    | Scott     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.001 sec)
+
+
+-- Find the first 5 employee in the table
+
+
+SELECT * FROM employee 
+LIMIT 5;
+
+
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    102 | Michael    | Scott     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+5 rows in set (0.001 sec)
+
+
+-- Find the 1st and last name of all employee
+
+
+SELECT first_name, last_name
+FROM employee;
+
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| David      | Wallace   |
+| Jan        | Levinson  |
+| Michael    | Scott     |
+| Angela     | Martin    |
+| Kelly      | Kapoor    |
+| Stanley    | Hudson    |
+| Josh       | Porter    |
+| Andy       | Bernard   |
+| Jim        | Halpert   |
++------------+-----------+
+9 rows in set (0.001 sec)
+
+-- Find the forenames and surnames of all employee
+
+
+SELECT first_name AS forename, last_name AS surname
+FROM employee;
+
++----------+----------+
+| forename | surname  |
++----------+----------+
+| David    | Wallace  |
+| Jan      | Levinson |
+| Michael  | Scott    |
+| Angela   | Martin   |
+| Kelly    | Kapoor   |
+| Stanley  | Hudson   |
+| Josh     | Porter   |
+| Andy     | Bernard  |
+| Jim      | Halpert  |
++----------+----------+
+9 rows in set (0.001 sec)
+
+
+--Find out all the different genders
+
+
+SELECT DISTINCT sex
+from employee;
+
+
++------+
+| sex  |
++------+
+| M    |
+| F    |
++------+
+2 rows in set (0.001 sec)
+

@@ -1,0 +1,31 @@
+
+There are two distinct paths that can be taken on Retro. 
+
+One requires significantly less trial and error, however, both will work. 
+
+Please check writeups if you are curious regarding the two paths. 
+An alternative version of this room is available in it's remixed version Blaster.
+
+1. A web server is running on the target. What is the hidden directory which the website lives on?
+
+---> /retro
+
+2. user.txt
+
+HINT: Don't leave sensitive information out in the open, even if you think you have control over it. 
+
+------> 3b99fbdc6d430bfb51c72c651a261927
+
+step1:
+
+Just like the same as Blaster
+
+3. root.txt
+
+------> 7958b565d7bd88d10c6f22d1c4063
+
+I used CVE-2017-0213, following write ups, but could not understamd why the helland from how the hell that got this info that this vulnerabilty is related to CVE-2017-0213
+
+Hosted server to download the exploit in the target Win10 machine 
+then executed it to get "nt auth..." shell
+

@@ -1,0 +1,22 @@
+# Nmap 7.80 scan initiated Wed Oct  7 12:13:29 2020 as: nmap -sV -v -oA /root/Documents/CTF/THM/Metasploit/nmap_Scan1 -oX /root/.msf4/local/msf-db-nmap-20201007-3725-1o18plk.xml 10.10.199.31
+Nmap scan report for 10.10.199.31
+Host is up (0.20s latency).
+Not shown: 988 closed ports
+PORT      STATE SERVICE        VERSION
+135/tcp   open  msrpc          Microsoft Windows RPC
+139/tcp   open  netbios-ssn    Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds   Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server?
+5357/tcp  open  http           Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+8000/tcp  open  http           Icecast streaming media server
+49152/tcp open  msrpc          Microsoft Windows RPC
+49153/tcp open  msrpc          Microsoft Windows RPC
+49154/tcp open  msrpc          Microsoft Windows RPC
+49158/tcp open  msrpc          Microsoft Windows RPC
+49159/tcp open  msrpc          Microsoft Windows RPC
+49160/tcp open  msrpc          Microsoft Windows RPC
+Service Info: Host: DARK-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Oct  7 12:15:09 2020 -- 1 IP address (1 host up) scanned in 100.50 seconds

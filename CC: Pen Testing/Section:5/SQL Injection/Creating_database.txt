@@ -1,0 +1,34 @@
+$ sudo mysql -u root
+
+MariaDB [(none)]> CREATE DATABASE test;
+
+MariaDB [(none)]> USE test;
+
+MariaDB [test]> CREATE TABLE login_details (username VARCHAR(20), password VARCHAR(20));
+
+MariaDB [test]> show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| login_details  |
++----------------+
+1 row in set (0.001 sec)
+
+MariaDB [test]> INSERT INTO login_details (username,password)
+    -> Values("admin", "admin");
+
+MariaDB [test]> INSERT INTO login_details (username,password) Values("reveng", "reveng");
+Query OK, 1 row affected (0.051 sec)
+
+MariaDB [test]> INSERT INTO login_details (username,password) Values("root", "1234");
+Query OK, 1 row affected (0.109 sec)
+
+MariaDB [test]> SELECT * FROM login_details;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | admin    |
+| reveng   | reveng   |
+| root     | 1234     |
++----------+----------+
+3 rows in set (0.001 sec)

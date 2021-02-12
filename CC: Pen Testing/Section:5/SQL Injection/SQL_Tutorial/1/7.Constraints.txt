@@ -1,0 +1,196 @@
+
+Constraints:
+
+NOT NULL
+UNIQUE
+DEFAULT
+
+Continuing where we left earlier,
+
+
+
+
+S1:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE
+    );
+
+INSERT INTO student VALUES(1, 'Jack','Biology');
+INSERT INTO student VALUES(2, 'kate','Science');
+INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+INSERT INTO student VALUES(4, 'Jack','Biology');
+INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+
+SELECT * FROM student;
+
+ERROR 1062 (23000) at line 13: Duplicate entry 'Biology' for key 'student.major'
+|
+|
+|----> As We mentioned 'UNIQUE' for major column!!!
+
+
+S2:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20)         <--------------- As we removed UNIQUE 
+    );
+
+INSERT INTO student VALUES(1, 'Jack','Biology');
+INSERT INTO student VALUES(2, 'kate','Science');
+INSERT INTO student VALUES(3, 'Claire','English');
+INSERT INTO student VALUES(4, 'Jack','Biology');
+INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+
+SELECT * FROM student;
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | Claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+
+S3:
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE       <--------------- Brought back UNIQUE
+    );
+
+INSERT INTO student VALUES(1, 'Jack','Biology');
+INSERT INTO student VALUES(2, 'kate','Science');
+INSERT INTO student VALUES(3, NULL,'English');  <------------------- made NULL
+INSERT INTO student VALUES(4, 'Jack','Biology');
+INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
+ERROR 1048 (23000) at line 13: Column 'name' cannot be null
+
+
+Now, we make chnages,
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE
+    );
+
+INSERT INTO student VALUES(1, 'Jack','Biology');
+INSERT INTO student VALUES(2, 'kate','Science');
+INSERT INTO student VALUES(3, 'Claire','English');  <--- made 'Claire' instead of NULL
+INSERT INTO student VALUES(4, 'Jack','Biology');
+INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
+ERROR 1062 (23000) at line 14: Duplicate entry 'Biology' for key 'student.major'
+|
+|
+|------------------> Now getting error for Duplicate as major is made UNIQUE
+
+
+               => Sql is executing line by line, it doesn't execute the whole at once.
+
+
+
+S4:
+
+Making default value to column ----> Nothing is provided column will automatically  
+                                     add  value.  ----> DEFAULT
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided' -------------> DEFAULT
+    );
+
+INSERT INTO student(student_id, name) VALUES(1, 'Jack');
+INSERT INTO student VALUES(2, 'kate','Science');
+INSERT INTO student VALUES(3, NULL,'English');
+INSERT INTO student VALUES(4, 'Jack','Biology');
+INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+
+SELECT * FROM student;
+
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | undecided |
+|          2 | kate | Science   |
+|          3 | NULL | English   |
+|          4 | Jack | Biology   |
+|          5 | Mike | Comp.sci  |
++------------+------+-----------+
+5 rows in set (0.001 sec)
+
+
+
+S5:
+
+
+Making default value to column ----> Nothing is provided column will automatically  
+                                     add  value.  -------> AUTO_INCREMENT
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT, --------> AUTO_INCREMENT
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Biology  |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Biology  |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+

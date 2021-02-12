@@ -1,0 +1,66 @@
+
+
+smbclient allows you to do most of the things you can do with smbmap, and it also offers you and interactive prompt.
+
+Refer : https://www.samba.org/samba/docs/current/man-html/smbclient.1.html ---> man page like
+
+1. How do you specify which domain(workgroup) to use when connecting to the host?
+
+-----> -W
+
+
+2. How do you specify the ip address of the host?
+
+-----> -i
+
+
+3. How do you run the command "ipconfig" on the target machine?
+
+-----> -c "ipconfig"
+
+
+4. How do you specify the username to authenticate with?
+
+-----> -u
+
+
+5. How do you specify the password to authenticate with?
+
+-----> -P  
+
+and -p ---> for port
+
+
+6. What flag is set to tell smbclient to not use a password?
+
+-----> -N
+
+
+7. While in the interactive prompt, how would you download the file test, assuming it was in     the current directory?
+ 
+-----> get test
+
+
+8. In the interactive prompt, how would you upload your /etc/hosts file
+
+
+-----> put /etc/hosts
+
+
+
+
+NOTE:
+
+A note about impacket
+-----------------------
+
+
+✓ impacket is a collection of extremely useful windows scripts. 
+
+✓ It is worth mentioning here, as it has many scripts available that use samba to enumerate an  d even gain shell access to windows machines. All scripts can be found here.
+
+  here: https://github.com/SecureAuthCorp/impacket
+
+✓ mpacket has scripts that use other protocols and services besides samba.
+
+

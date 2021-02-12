@@ -1,0 +1,136 @@
+
+✓ Setting Up:
+-------------
+
+
+1. What command allows you to search modules?
+
+----> search
+
+2. How do you select a module?   
+
+----> use
+
+3. How do you display information about a specific module?
+
+----> info 
+
+4. How do you list options that you can set?
+
+----> show options
+
+5. What command lets you view advanced options for a specific module?    
+
+----> advanced
+
+6. How do you show options in a specific category
+
+----> show
+
+
+
+✓ Selecting a module:
+----------------------
+
+
+
+1. How do you select the eternalblue module?
+
+------> use exploit/windows/smb/ms17_010_eternalblue
+
+2. What option allows you to select the target host(s)?
+
+-----> RHOSTS
+
+3. How do you set the target port? 
+
+-----> RPORT
+
+4. What command allows you to set options?
+
+-----> set
+
+5. How would you set SMBPass to "username"?
+
+-----> set SMBPass username
+
+6. How would you set the SMBUser to "password"?
+
+-----> set SMBPUser password
+
+7. What option sets the architecture to be exploited?
+
+-----> arch
+
+8. What option sets the payload to be sent to the target machine?
+
+-----> payload
+
+9. Once you've finished setting all the required options, how do you run the exploit?
+
+-----> exploit
+
+10. What flag do you set if you want the exploit to run in the background?
+
+-----> run -j 
+
+11. How do you list all current sessions?
+
+-----> sessions
+
+
+12. What flag allows you to go into interactive mode with a session("drops you either into a meterpreter or regular shell")
+
+-----> -i
+
+
+
+✓ meterpreter
+--------------
+
+
+1. What command allows you to download files from the machine?
+
+-----> download
+
+2. What command allows you to upload files to the machine?
+
+-----> upload
+
+3. How do you list all running processes?
+
+-----> ps
+
+4. How do you change processes on the victim host(Ideally it will allow you to change users an   d gain the perms associated with that user)
+
+-----> migrate
+
+5. What command lists files in the current directory on the remote machine?
+
+-----> ls
+
+6. How do you execute a command on the remote host?
+
+----> execute
+
+7. What command starts an interactive shell on the remote host?
+
+----> shell
+
+8. How do you find files on the target host(Similar function to the linux command "find")
+
+----> search
+
+9. How do you get the output of a file on the remote host?
+
+----> cat
+
+10. How do you put a meterpreter shell into "background mode"(allows you to run other msf modu	  les while also keeping the meterpreter shell as a session)? 
+
+----> background
+
+
+
+✓ Final Walkthrough
+--------------------
+

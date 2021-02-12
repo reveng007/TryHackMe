@@ -1,0 +1,45 @@
+
+nikto is a popular web scanning tool that allows users to find common web vulnerabilities. It is commonly used to check for common CVE's such as shellshock/backdoor, and to get general information about the web server that you're enumerating.
+
+1. How do you specify which host to use?   
+
+----> -h
+
+2. What flag disables ssl?
+
+----> -nossl
+
+3. How do you force ssl?  
+
+----> -ssl
+
+4. How do you specify authentication(username + pass)?
+
+-----> -id
+
+nikto -h <Hostname/IP> -id <id:pass> or <id:pass:realm>   
+
+
+5. How do you select which plugin to use?
+
+-----> -plugins
+
+6. Which plugin checks if you can enumerate apache users?    
+
+-----> apacheusers 
+
+step1:
+nikto -list-plugins > ok.txt
+
+step2:
+grep 'apache' ok.txt
+
+
+7. How do you update the plugin list
+
+------> -update
+
+8.  How do you list all possible plugins to use
+
+------> -list-pugins
+

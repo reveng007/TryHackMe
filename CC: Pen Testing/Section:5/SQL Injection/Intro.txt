@@ -1,0 +1,22 @@
+
+
+SQL injection is the art of modifying a SQL query so you can get access to the target's database. This technique is often used to get user's data such as passwords, emails etc. SQL injection is one of the most common web vulnerabilities, and as such, it is highly worth checking for
+
+see: https://blog.cobalt.io/a-pentesters-guide-to-sql-injection-sqli-16fd570c3532
+
+see: https://mega.nz/folder/uBkXWSZS#1isYLVqGqob7Q0SLTFyssw
+
+see: https://www.hackingarticles.in/set-sqli-lab-kali/
+
+see: https://www.hackingarticles.in/beginner-guide-sql-injection-part-1/
+
+see: https://www.hackingarticles.in/beginner-guide-sql-injection-boolean-based-part-2/
+
+see: https://www.hackingarticles.in/bypass-filter-sql-injection-manually/
+
+see: https://www.hackingarticles.in/form-based-sql-injection-manually/
+
+see: https://www.hackingarticles.in/manual-sql-injection-exploitation-step-step/
+
+see: ~/Desktop/Note.../Cyber.../Web.../SQL...pdf
+

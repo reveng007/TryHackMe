@@ -1,0 +1,55 @@
+
+Continuing where we left earlier,
+
+
+% = any number of characters just like * in bash,  _ = one/single character
+
+-- Find any client who are an LLC
+
+SELECT * 
+FROM client
+WHERE client_name LIKE '%LLC';
+
+
++-----------+--------------------+-----------+
+| client_id | client_name        | branch_id |
++-----------+--------------------+-----------+
+|       403 | John Daly Law, LLC |         3 |
++-----------+--------------------+-----------+
+1 row in set (0.007 sec)
+
+
+-- Find any branch suppliers who are in the label business
+
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE '% Label%';
+
++-----------+---------------------+--------------+
+| branch_id | supplier_name       | supply_type  |
++-----------+---------------------+--------------+
+|         2 | J.T. Forms & Labels | Custom Forms |
++-----------+---------------------+--------------+
+1 row in set (0.001 sec)
+
+
+--Find any employee born in October
+
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE '% Label%';
+
+
+--Find any employee born in October
+
+SELECT *
+FROM employee
+WHERE birth_date LIKE '____-10%';
+
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+1 row in set (0.001 sec)
+

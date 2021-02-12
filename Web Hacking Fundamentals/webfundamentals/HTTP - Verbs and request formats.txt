@@ -1,0 +1,141 @@
+Request:
+
+There are 9 different HTTP "verbs", also known as methods. 
+
+✓ Each one has a different function. We've mentioned GET requests already, these are used to retrieve content.
+
+✓ POST requests --->  used to send data to a web server, like adding a comment or                       performing a login.
+
+NOTE:
+There are several more verbs, but these aren't as commonly used for most web servers.
+
+
+A HTTP request can be broken down into parts.
+                       ______     _______________________
+1. The first line is a |verb| and |a path for the server|, such as:
+                       ------     -----------------------
+   GET /index.html
+    ^ |___________|      
+    |            |
+method/Verb     Path for server
+                       _________ 
+2. The next section is |headers|: 
+                       --------- 
+   -->which give the web server more information about your request. Importantly, cookies are sent in the request headers, more on those later.
+                                     _______________
+3. Finally, body of the request. For |POST requests|:
+                                     ---------------
+   --> this is the content that's sent to the server. For GET requests, a body is allowed but will mostly be ignored by the server.
+
+
+Here's an example for a GET request retrieving a simple JS file:
+
+GET /main.js HTTP/1.1
+Host: 192.168.170.129:8081
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+Accept: */*
+Referer: http://192.168.170.129:8081/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+
+From the headers, you can tell what I performed the request from (Chrome version 80, from Windows 10). This is useful for forensics and analysing packet captures.
+
+
+Responses:
+
+The server should reply with a response. The response follows a similar structure to the request, but the first line describes the status rather than a verb and a path.
+
+A basic breakdown of the status codes is:
+
+✓ 100-199: Information
+✓ 200-299: Successes (200 OK is the "normal" response for a GET)
+✓ 300-399: Redirects (the information you want is elsewhere)
+✓ 400-499: Client errors (You did something wrong, like asking for something that doesn't exist)
+✓ 500-599: Server errors (The server tried, but something went wrong on their side)
+
+For more: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+
+Here's a response to the GET request shown above:
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 28
+Content-Type: application/javascript; charset=utf-8
+Last-Modified: Wed, 12 Feb 2020 12:51:44 GMT
+Date: Thu, 27 Feb 2020 21:47:30 GMT
+
+console.log("Hello, World!")
+
+
+Does the body of a GET request matter?
+
+Nope, GET request does not have a request body.
+
+
+What are cookies?
+
+Cookies are normally sent with every HTTP request made to a server.
+
+
+Why Cookies?
+
+HTTP is stateless (Each request is independent and no state is tracked internally), cookies are used to keep track of this. They allow sites to keep track of data like what items you have in your shopping cart, who you are, what you've done on the website and more.
+
+✓ Cookies can broken down into several parts:
+
+1. Cookie name  ---> Cookie identification
+2. Cookie value ---> Value is where data is stored 
+3. Cookie expiry date 
+   ----> the expiry date is when the browser will get rid of the cookie automatically 
+
+4. Cookie path ----> determines what requests the cookie will be sent with
+
+* Weird things happen with advertising/tracking
+
+NOTE:
+
+✓ The server is normally what sets cookies.
+
+✓ these come in the response headers ("Set-Cookie"). Alternatively, these can be set from Java  Script inside your browser.
+
+
+Using cookies:
+
+When you log in to a web application, normally you are given a Session Token. This allows the web server to identify your requests from someone else's. Stealing someone else's session token can often allow you to impersonate them.
+
+
+More on cookies:
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+
+There's a web server running on http://10.10.184.254:8081. Connect to it and get the flags!
+
+✓ GET request. Make a GET request to the web server with path /ctf/get
+
+✓ POST request. Make a POST request with the body "flag_please" to /ctf/post
+
+✓ Get a cookie. Make a GET request to /ctf/getcookie and check the cookie the server gives you
+
+✓ Set a cookie. Set a cookie with name "flagpls" and value "flagpls" in your devtools (or with  curl!) and make a GET request to /ctf/sendcookie
+
+
+1. What's the GET flag? (You can perform a GET request with curl, or your web browser)
+
+2. What's the POST flag? (cURL is probably the easiest way to do this, use -X/--request POST 
+                          and --data <whatever you want to send>)
+
+3. What's the "Get a cookie" flag?
+
+Either, visit the webpage and then go to request section in dev tools of the client browser
+Or use:
+
+	curl -c - ip:port/ctf/getcookie
+
+
+4. What's the "Set a cookie" flag?
+
+curl --cookie 'flagpls=flagpls' http://ip:port/ctf/getcookie
+
+For verbose: use --> -v

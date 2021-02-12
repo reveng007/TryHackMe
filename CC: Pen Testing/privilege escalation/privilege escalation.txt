@@ -1,0 +1,32 @@
+
+
+General:
+--------
+
+1. A bunch of tools and payloads for every stage of pentesting : https://github.com/swisskyrepo/PayloadsAllTheThings 
+
+Linux:
+-------
+
+1. a bit old but still worth looking at : https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
+
+2. One of the most popular priv esc scripts : https://github.com/rebootuser/LinEnum
+
+3. Another popular script : https://github.com/diego-treitos/linux-smart-enumeration/blob/master/lse.sh 
+
+4. A Script that's dedicated to searching for kernel exploits : https://github.com/mzet-/linux-exploit-suggester 
+
+5. I can not overstate the usefulness of this for priv esc, if a common binary has special permissions, you can use this site to see how to get root perms with it.
+   
+   : https://gtfobins.github.io 
+
+
+Windows:
+--------
+
+1. Dictates some very useful commands and methods to enumerate the host and gain intel : https   ://www.fuzzysecurity.com/tutorials/16.html
+
+2. A bit old but still an incredibly useful script : https://github.com/PowerShellEmpire/Power   Tools/tree/master/PowerUp
+
+3. A general enumeration script : https://github.com/411Hall/JAWS 
+

@@ -1,0 +1,78 @@
+
+Continuing where we left earlier,
+
+S1:
+
+
+MariaDB [(none)]> use DB1;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [DB1]> DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int(11)     | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.002 sec)
+
+MariaDB [DB1]> INSERT INTO student VALUES(1, 'Jack','Biology');
+Query OK, 1 row affected (0.127 sec)
+
+MariaDB [DB1]> SELECT * FROM student;
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
++------------+------+---------+
+1 row in set (0.001 sec)
+
+
+MariaDB [DB1]>INSERT INTO student VALUES(2, 'kate','Science');
+Query OK, 1 row affected (0.125 sec)
+
+MariaDB [DB1]> SELECT * FROM student;
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
+|          2 | kate | Science |
++------------+------+---------+
+2 rows in set (0.001 sec)
+
+MariaDB [DB1]>INSERT INTO student(student_id, name) VALUES(3, 'Claire'); ---> IN 
+                                                                          THIS case
+                                                                          if we don't know the 3rd column, major value, I have to mention the other two columns.
+Query OK, 1 row affected (0.136 sec)
+
+MariaDB [DB1]> SELECT * FROM student;
++------------+--------+---------+
+| student_id | name   | major   |
++------------+--------+---------+
+|          1 | Jack   | Biology |
+|          2 | kate   | Science |
+|          3 | Claire | NULL    |
++------------+--------+---------+
+3 rows in set (0.001 sec)
+
+MariaDB [DB1]> INSERT INTO student VALUES(4, 'Jack','Biology');
+Query OK, 1 row affected (0.048 sec)
+
+MariaDB [DB1]> INSERT INTO student VALUES(5, 'Mike','Comp.sci');
+Query OK, 1 row affected (0.139 sec)
+
+MariaDB [DB1]> SELECT * FROM student;
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | Claire | NULL     |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+

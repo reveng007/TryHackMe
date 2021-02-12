@@ -1,0 +1,382 @@
+
+Continuing where we left earlier,
+
+
+S1:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+S2:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES('Claire','English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+SELECT name, major FROM student;
+
+
++--------+----------+
+| name   | major    |
++--------+----------+
+| Jack   | Biology  |
+| kate   | Science  |
+| claire | English  |
+| Jack   | Biology  |
+| Mike   | Comp.sci |
++--------+----------+
+5 rows in set (0.001 sec)
+
+
+OR,
+
+
+SELECT student.name, student.major FROM student;
+
+
++--------+----------+
+| name   | major    |
++--------+----------+
+| Jack   | Biology  |
+| kate   | Science  |
+| claire | English  |
+| Jack   | Biology  |
+| Mike   | Comp.sci |
++--------+----------+
+5 rows in set (0.001 sec)
+
+
+
+SELECT * FROM student ORDER BY student_id DESC;
+
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          5 | Mike   | Comp.sci |
+|          4 | Jack   | Biology  |
+|          3 | Claire | English  |
+|          2 | kate   | Science  |
+|          1 | Jack   | Biology  |
++------------+--------+----------+
+5 rows in set (0.000 sec)
+
+
+SELECT * FROM student ORDER BY student_id ASC;
+
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | Claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+Case1:
+
+
+SELECT * FROM student ORDER BY major, student_id;
+
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
+|          3 | Claire | English  |
+|          2 | kate   | Science  |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+Ordering major 1st in ASC order and then ordering student_id in ASC order.
+
+1. odering major in ASC
+
+2. Then ordering student_id in ASC if it can be ordered.
+
+    In this case, it ordered '1' 1st and then '4' .
+
+
+Case 2:
+
+
+SELECT * FROM student ORDER BY major, student_id DESC;
+
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          4 | Jack   | Biology  |
+|          1 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
+|          3 | Claire | English  |
+|          2 | kate   | Science  |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+Ordering major 1st in DESC order and then ordering student_id in DESC order.
+
+1. odering major in DESC
+
+2. Then ordering student_id in DESC if it can be ordered.
+
+    In this case, it ordered '4' 1st and then '1' .
+
+
+
+Case 3:
+
+
+NOTE: ********
+
+
+SELECT * FROM student ORDER BY name, major DESC; ----> Ordering name 1st in DESC 
+                                                   order and then ordering major in DESC order.
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          3 | Claire | English  |
+|          1 | Jack   | Biology  |
+|          4 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+SELECT * FROM student ORDER BY name, major ASC;
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          3 | Claire | English  |
+|          1 | Jack   | Biology  |
+|          4 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.000 sec)
+
+
+
+HERE, Both :
+
+SELECT * FROM student ORDER BY name, major DESC;
+
+and
+
+SELECT * FROM student ORDER BY name, major ASC;
+
+
+-----> Producing same result as :
+
+see timeline : 2:01:30
+
+
+
+S3:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.001 sec)
+
+
+SELECT * FROM student
+LIMIT 2;
+
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
+|          2 | kate | Science |
++------------+------+---------+
+2 rows in set (0.001 sec)
+
+
+SELECT * FROM student
+ORDER BY student_id DESC
+LIMIT 2;
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          5 | Mike | Comp.sci |
+|          4 | Jack | Biology  |
++------------+------+----------+
+2 rows in set (0.001 sec)
+
+
+
+SELECT * FROM student
+WHERE major = 'Biology' OR major = 'English'
+LIMIT 3;
+
++------------+--------+---------+
+| student_id | name   | major   |
++------------+--------+---------+
+|          1 | Jack   | Biology |
+|          3 | Claire | English |
+|          4 | Jack   | Biology |
++------------+--------+---------+
+3 rows in set (0.001 sec)
+
+
+-- ----> Comment out all the things writtem after it.
+
+<, >, <=, >=, =, <>, AND, OR 
+                  |
+                  |
+                  |
+                  |-----> Not equal to (!=)
+
+
+SELECT * FROM student-- WHERE major = 'Biology' OR major = 'English' LIMIT 3;
+    -> ;
+
+
++------------+--------+----------+
+| student_id | name   | major    |
++------------+--------+----------+
+|          1 | Jack   | Biology  |
+|          2 | kate   | Science  |
+|          3 | Claire | English  |
+|          4 | Jack   | Biology  |
+|          5 | Mike   | Comp.sci |
++------------+--------+----------+
+5 rows in set (0.000 sec)
+
+
+SELECT * FROM student
+    -> WHERE student_id <= 3;
+
+
++------------+--------+---------+
+| student_id | name   | major   |
++------------+--------+---------+
+|          1 | Jack   | Biology |
+|          2 | kate   | Science |
+|          3 | Claire | English |
++------------+--------+---------+
+3 rows in set (0.001 sec)
+
+
+SELECT * FROM student WHERE student_id <= 3 AND name <> 'Jack';
+
+
++------------+--------+---------+
+| student_id | name   | major   |
++------------+--------+---------+
+|          2 | kate   | Science |
+|          3 | Claire | English |
++------------+--------+---------+
+2 rows in set (0.001 sec)
+ 
+                                   
+                                   |--> IN = equal to when values is more than one
+                                   |           HERE, it has 2 values, Bio and Chem
+                                   |
+SELECT * FROM student WHERE major IN ('Biology', 'Chemistry');
+
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+   Here chem is not present in database.
+|          1 | Jack | Biology |
+|          4 | Jack | Biology |
++------------+------+---------+
+2 rows in set (0.000 sec)
+
+
+SELECT * FROM student WHERE major = 'Biology';
+
+
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
+|          4 | Jack | Biology |
++------------+------+---------+
+2 rows in set (0.000 sec)
+

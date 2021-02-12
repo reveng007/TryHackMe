@@ -1,0 +1,73 @@
+
+Two types of Database:
+
+    RElational DAtabse (SQL)               Non-Relational (noSQL / not just SQL)
+    ------------------------               -------------------------------------
+✓ Organize data into one or more           ✓ Organize data is anything but a traditional        tables                                     table
+   
+   ✓ Each table has columns and rows          ✓ Key-value stores
+ 
+   ✓ A unique key indentifies each row        ✓ Documents (JSON, XML, etc)
+                                               
+                                				      ✓ Graphs
+
+					                                    ✓ Flexible Tables
+
+ Relational Databases (SQL):
+-----------------------------
+
+
+   Student Table
+-------------------------------+
+ID  |      Name     | Major    |
+    |               |          |
+ 1  |       Jack    | Biology  | 
+ 2  |       Kate    | Sociology|
+ 3  |       Claire  | English  |
+ 4  |       John    | Chemistry|
++---|---------------+----------+
+
+
+Relational Databse Management Systems(RDMS)
+-------------------------------------------
+   
+✓ Help users create and maintain a relational database
+         
+	✓ mySQL, Oracle, postgreSQL, mariaDB, etc.
+
+1. Structured Query Language (SQL)
+
+✓ Standerdized language for interacting with RDMS
+
+✓ Used to perform C.R.U.D.(create, retrieve, update, delete) operations, as well as other administve tasks (user management, security, backup, etc).
+
+✓ Used to define tables and structures
+
+✓ SQL code used on one RDMS is not always portable to another without modification.
+
+
+Non-Relational Database (noSQL / not just SQL):
+-----------------------------------------------
+
+Document ---> JSON, BLOB, XML, etc...
+
+Graph ----> Reltional nodes
+
+Key-Value Hash ----> Keys are mapped to values (strings, json, blob, etc...)
+
+
+Non-Relational Database Management Systems (NRDBMS);
+----------------------------------------------------
+
+✓ Help users create and maintain a non-relational database
+	✓ mongoDB, dynamicDB, apache, cassandra, firebase, etc...
+
+
+Database Queries:
+-----------------
+
+Queries are requests made to the database management system for specific information.
+
+✓ Google search is a basically a query.
+
+

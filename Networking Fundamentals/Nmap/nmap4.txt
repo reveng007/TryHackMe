@@ -1,0 +1,89 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-10-05 18:37 EDT
+NSE: Loaded 105 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 18:37
+Completed NSE at 18:38, 10.02s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 18:38
+Completed NSE at 18:38, 0.00s elapsed
+Initiating Ping Scan at 18:38
+Scanning 10.10.35.100 [4 ports]
+Completed Ping Scan at 18:38, 0.24s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 18:38
+Completed Parallel DNS resolution of 1 host. at 18:38, 0.04s elapsed
+Initiating SYN Stealth Scan at 18:38
+Scanning 10.10.35.100 [2 ports]
+Discovered open port 80/tcp on 10.10.35.100
+Discovered open port 22/tcp on 10.10.35.100
+Completed SYN Stealth Scan at 18:38, 0.26s elapsed (2 total ports)
+NSE: Script scanning 10.10.35.100.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 18:38
+NSE Timing: About 98.52% done; ETC: 18:38 (0:00:00 remaining)
+NSE Timing: About 98.52% done; ETC: 18:39 (0:00:01 remaining)
+NSE Timing: About 98.52% done; ETC: 18:39 (0:00:01 remaining)
+NSE Timing: About 98.52% done; ETC: 18:40 (0:00:02 remaining)
+NSE Timing: About 98.52% done; ETC: 18:40 (0:00:02 remaining)
+NSE Timing: About 98.52% done; ETC: 18:41 (0:00:03 remaining)
+NSE Timing: About 98.52% done; ETC: 18:41 (0:00:03 remaining)
+NSE Timing: About 98.52% done; ETC: 18:42 (0:00:04 remaining)
+NSE Timing: About 98.52% done; ETC: 18:42 (0:00:04 remaining)
+NSE Timing: About 98.52% done; ETC: 18:43 (0:00:05 remaining)
+Completed NSE at 18:43, 311.99s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 18:43
+Completed NSE at 18:43, 1.40s elapsed
+Nmap scan report for 10.10.35.100
+Host is up, received echo-reply ttl 63 (0.17s latency).
+Scanned at 2020-10-05 18:38:05 EDT for 314s
+
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+80/tcp open  http    syn-ack ttl 63
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|       httponly flag not set
+|   /login.php: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|   /login.php: Possible admin folder
+|   /robots.txt: Robots file
+|   /config/: Potentially interesting directory w/ listing on 'apache/2.4.7 (ubuntu)'
+|   /docs/: Potentially interesting directory w/ listing on 'apache/2.4.7 (ubuntu)'
+|_  /external/: Potentially interesting directory w/ listing on 'apache/2.4.7 (ubuntu)'
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 18:43
+Completed NSE at 18:43, 0.00s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 18:43
+Completed NSE at 18:43, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 325.23 seconds
+           Raw packets sent: 6 (240B) | Rcvd: 3 (116B)

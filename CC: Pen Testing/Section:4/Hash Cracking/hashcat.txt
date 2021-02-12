@@ -1,0 +1,50 @@
+
+hashcat is another one of the most popular hash cracking tools. It is renowned for its versatility and speed. Hashcat does not have auto detection for hashtypes, instead it has modes. For example if you were trying to crack an md5 hash the "mode" would be 0,while if you were tryingto crack a sha1 hash, the mode would be 100.
+
+A full list of all modes can be found : https://hashcat.net/wiki/doku.php?id=example_hashes
+
+
+1. What flag sets the mode.
+
+----> -m
+
+2. What flag sets the "attack mode"
+
+----> -a
+
+3. What is the attack mode number for Brute-force 
+
+----> 3
+
+4. What is the mode number for SHA3-512    
+
+----> 17600
+
+5. Crack This Hash:56ab24c15b72a457069c5ea42fcfc640
+
+   Type: MD5
+
+----> hashcat -m 0 -a 3 56ab24c15b72a457069c5ea42fcfc640 /usr/share/wordlists/rockyou.txt
+
+as MD5 ----------> -m 0
+
+as attack mode --> -a
+
+as bruteforce ---> -a 3
+
+To see the word: hashcat -m 0 -a 3 56ab24c15b72a457069c5ea42fcfc640 /usr/share/wordlists/rockyou.txt --show
+
+
+6. Crack this hash: 4bc9ae2b9236c2ad02d81491dcb51d5f
+
+   Type: MD4
+
+------> hashcat -m 900 -a 3 56ab24c15b72a457069c5ea42fcfc640 /usr/share/wordlists/rockyou.txt
+
+as MD5 ----------> -m 900
+
+But using this command I haven't got any result, probably due to lack of resourses(processor/CPU/GPU)
+
+I used : https://crackstation.net/
+
+

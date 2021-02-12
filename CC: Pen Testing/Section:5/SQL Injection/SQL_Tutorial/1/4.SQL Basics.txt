@@ -1,0 +1,68 @@
+
+Structured Query Language (SQL):
+----------------------------------
+
+✓ SQL is a language used for interacting with Relational Database Management Sytems 
+  (RDBMS)
+
+  ✓ We can use SQL to get the RDBMS to do things for you 
+
+  	* Create, retrieve, update and delete data
+  	* Create and manage databases
+  	* Design and create database tables
+  	* Perform administration tasks (security, user management, import/export, etc)
+
+✓ SQL implen=mentations vary between systems
+
+	✓ Not all RDBMS' follow the SQL standard to a 'T'
+
+	✓ The concepts are the same but the implementation may vary
+
+
+NOT that much IMP. but ONLY know.
+
+✓ SQL is actually a hybrid language, it's basically 4 types of languages in one.
+
+	✓ Data Query Language (DOL)
+
+		* Used to query the database for information.
+		* Get information that is already stored there.
+
+	✓ Data Defination Language (DDL)
+
+		* Used for defining database schemas.
+
+	✓ Data Control Language (DCL)
+
+		* Used for controlling access to the data in the database.
+		* User & permissions management. -----------------------> just like in linux.
+
+	✓ Data Manipulation Language (DML)
+
+		* Used for inserting, updating and deleting data from the database
+
+
+
+Queries:
+---------
+
+✓ A query is a set of instructions given to the RDBMS (written is SQL) that tell the 
+  RDMS  what information you want it to retrieve for you
+
+  ✓ TONS of data in a DB
+
+  ✓ OFten hidden in a complex schema
+
+  ✓ Goal is to only get the data you need
+
+
+  Table = employee
+
+  name, age, salary = Columns in the table.
+
+
+  SELECT employee.name, employee.age
+
+  FROM employee
+
+  WHERE employee.salary > 3000;

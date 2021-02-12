@@ -1,0 +1,28 @@
+
+No matter what tool you use, virtually all of them have the exact same format. A file with thehash(s) in it with each hash being separated by a newline.
+
+Example:
+
+<hash 1>
+
+<hash 2>
+
+<hash 3>
+
+
+
+Salts are typically appended onto the hash with a colon and the salt. Files with salted hashes still follow the same convention with each hash being separated by a newline.
+
+Example:
+
+<hash1>:<salt>
+
+<hash2>:<salt>
+
+<hash3>:<salt>
+
+
+
+Note: Different hashing algorithms treat salts differently. Some prepend them and some append them. Research what it is you're trying to crack, and make the distinction.
+
+

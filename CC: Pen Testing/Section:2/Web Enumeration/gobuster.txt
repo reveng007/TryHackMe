@@ -1,0 +1,112 @@
+
+Basic reconnaissance can tell you where some files and directories are; however, some of the more hidden stuff is often hidden away from the eyes of users. This is where gobuster comes in, the idea behind gobuster is that it tries to find valid directories from a wordlist of possible directories. gobuster can also be used to valid subdomains using the same method.
+
+In the event your operating system does not provide the gobuster man page, please use gobuster --help
+
+
+When you get the ip of the target VM Then always:
+
+IP = <ip>
+
+Then when ever we want we can use: $IP
+
+
+1. How do you specify directory/file brute forcing mode?
+
+---> dir
+
+2. How do you specify dns bruteforcing mode? 
+
+-----> dns
+
+3. What flag sets extensions to be used?
+
+   Example: if the php extension is set, and the word is "admin" then gobuster will test admin   .php against the webserver
+
+------> -x
+
+
+   see: https://redteamtutorials.com/2018/11/19/gobuster-cheatsheet/
+
+
+4. What flag sets a wordlist to be used?
+
+----> -w
+
+
+5. How do you set the Username for basic authentication(If the directory requires a username/password)?
+
+-----> -U
+
+
+6. How do you set the password for basic authentication?
+
+-----> -p
+
+
+7. How do you set which status codes gobuster will interpret as valid?
+
+   Example: 200,400,404,204
+
+------> -s
+
+
+8. How do you skip ssl certificate verification?
+
+-----> -k
+
+
+9. How do you specify a User-Agent?
+
+
+-----> -a
+
+
+10. How do you specify a HTTP header?
+
+-----> -H
+
+-H, --headers stringArray ----> Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2' 
+
+
+11. What flag sets the URL to bruteforce?
+
+-----> -u
+
+
+12. What is the name of the hidden directory
+
+------>  I used:
+
+ - e ---> Returns full path
+
+sudo gobuster dir -u $IP -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
+
+/.hta (Status: 403)
+/.htaccess (Status: 403)
+/.htpasswd (Status: 403)
+/index.html (Status: 200)
+/secret (Status: 301)
+/server-status (Status: 403)
+
+Answer = /secret
+
+13. What is the name of the hidden file with the extension xxa ?
+
+-----> I used:
+
+sudo gobuster dir -u $IP -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -x .xxa
+
+/.hta (Status: 403)
+/.hta.xxa (Status: 403)
+/.htaccess (Status: 403)
+/.htaccess.xxa (Status: 403)
+/.htpasswd (Status: 403)
+/.htpasswd.xxa (Status: 403)
+/index.html (Status: 200)
+/password.xxa (Status: 200)
+/secret (Status: 301)
+/server-status (Status: 403)
+
+
+-----> password.xxa

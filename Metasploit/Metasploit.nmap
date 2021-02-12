@@ -1,0 +1,1 @@
+# Nmap 7.80 scan initiated Wed Oct  7 12:12:42 2020 as: nmap -sV -v -oA /root/Documents/CTF/THM/Metasploit -oX /root/.msf4/local/msf-db-nmap-20201007-3725-1cqks66.xml 10.10.199.31

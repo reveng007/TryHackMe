@@ -1,0 +1,41 @@
+
+
+Continuing with the trend of tools having "map" in the name being extremely popular, smbmap isone of the best ways to enumerate samba. smbmap allows pen-testers to run commands (given proper permissions), download and upload files, and overall is just incredibly useful for smb enumeration.
+
+1. How do you set the username to authenticate with?
+
+------> -u
+
+2. What about the password? 
+
+------> -p
+
+3. How do you set the host?
+
+------> -H
+
+4. What flag runs a command on the server(assuming you have permissions that is)?
+
+------> -x
+
+5. How do you specify the share to enumerate?
+
+-----> -s
+
+6. How do you set which domain to enumerate?
+
+-----> -d
+
+7. What flag downloads a file?
+
+-----> --download
+
+8. What about uploading one?
+
+-----> --upload
+
+9. Given the username "admin", the password "password", and the ip "10.10.10.10", how would you run ipconfig on that machine
+
+-----> smbmap -H "10.10.10.10" -u "admin" -p "password" -x "ipconfig"
+
+ 

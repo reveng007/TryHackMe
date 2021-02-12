@@ -1,0 +1,8 @@
+
+
+Most of the pentesting techniques and tools you've seen so far can be used on both Windows andLinux. However, one of the things you'll find most often when pentesting Windows machines is  samba, and it is worth making a section dedicated to enumerating it.
+
+Note: 
+
+Samba is cross platform as well, however this section will primarily be focused on Windows enumeration; some of the techniques you see here still apply to Linux as well.
+

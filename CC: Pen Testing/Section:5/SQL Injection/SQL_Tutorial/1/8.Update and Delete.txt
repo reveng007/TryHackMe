@@ -1,0 +1,336 @@
+
+Continuing where we left earlier,
+
+S1:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Biology  |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Biology  |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology'; ------------------> Updating/chnaging 'Biology' to 'Bio'
+
+SELECT * FROM student;
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Bio      |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Bio      |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+
+S2:
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Biology  |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Biology  |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+UPDATE student
+SET major = 'Bio'; ------------------> Updating/chnaging all major values to 'Bio'
+
+SELECT * FROM student;
+
++------------+------+-------+
+| student_id | name | major |
++------------+------+-------+
+|          1 | Jack | Bio   |
+|          2 | kate | Bio   |
+|          3 | NULL | Bio   |
+|          4 | Jack | Bio   |
+|          5 | Mike | Bio   |
++------------+------+-------+
+5 rows in set (0.001 sec)
+
+
+
+S3:
+
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+SELECT * FROM student;
+
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Biology  |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Biology  |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+
+UPDATE student
+SET major = 'Comp.sci'
+WHERE student_id = 4;  -------> Updating/chnaging major to 'Comp.sci' student_id = 4
+
+SELECT * FROM student;
+
+++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Bio      |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Comp.sci |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+
+S4:
+
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+SELECT * FROM student;
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Bio      |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Comp.sci |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+UPDATE student
+SET major = 'Bioscience'
+WHERE major = 'Bio' OR major = 'Science';
+
+SELECT * FROM student;
+
++------------+------+------------+
+| student_id | name | major      |
++------------+------+------------+
+|          1 | Jack | Bioscience |
+|          2 | kate | Bioscience |
+|          3 | NULL | English    |
+|          4 | Jack | Comp.sci   |
+|          5 | Mike | Comp.sci   |
++------------+------+------------+
+5 rows in set (0.001 sec)
+
+
+
+UPDATE student
+SET name = 'Tom', major = 'undicided'
+WHERE student_id = 1;
+
+SELECT * FROM student;
+
++------------+------+------------+
+| student_id | name | major      |
++------------+------+------------+
+|          1 | Tom  | undicided  |
+|          2 | kate | Bioscience |
+|          3 | NULL | English    |
+|          4 | Jack | Comp.sci   |
+|          5 | Mike | Comp.sci   |
++------------+------+------------+
+5 rows in set (0.001 sec)
+
+
+
+S5:
+
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) ,
+    major VARCHAR(20) DEFAULT 'undecided'
+    );
+
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('kate','Science');
+INSERT INTO student (name,major) VALUES(NULL,'English');
+INSERT INTO student (name,major) VALUES('Jack','Biology');
+INSERT INTO student (name,major) VALUES('Mike','Comp.sci');
+
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+SELECT * FROM student;
+
++------------+------+----------+
+| student_id | name | major    |
++------------+------+----------+
+|          1 | Jack | Bio      |
+|          2 | kate | Science  |
+|          3 | NULL | English  |
+|          4 | Jack | Comp.sci |
+|          5 | Mike | Comp.sci |
++------------+------+----------+
+5 rows in set (0.001 sec)
+
+
+UPDATE student
+SET major = 'Bioscience'
+WHERE major = 'Bio' OR major = 'Science';
+
+SELECT * FROM student;
+
++------------+------+------------+
+| student_id | name | major      |
++------------+------+------------+
+|          1 | Jack | Bioscience |
+|          2 | kate | Bioscience |
+|          3 | NULL | English    |
+|          4 | Jack | Comp.sci   |
+|          5 | Mike | Comp.sci   |
++------------+------+------------+
+5 rows in set (0.001 sec)
+
+
+
+UPDATE student
+SET name = 'Tom', major = 'undicided'
+WHERE student_id = 1;
+
+SELECT * FROM student;
+
++------------+------+------------+
+| student_id | name | major      |
++------------+------+------------+
+|          1 | Tom  | undicided  |
+|          2 | kate | Bioscience |
+|          3 | NULL | English    |
+|          4 | Jack | Comp.sci   |
+|          5 | Mike | Comp.sci   |
++------------+------+------------+
+5 rows in set (0.001 sec)
+
+
+
+DELETING ROWS:
+--------------
+
+
+DELETE FROM student
+WHERE student_id = 5;
+
+SELECT * FROM student;
++------------+------+------------+
+| student_id | name | major      |
++------------+------+------------+
+|          1 | Tom  | undicided  |
+|          2 | kate | Bioscience |
+|          3 | NULL | English    |
+|          4 | Jack | Comp.sci   |
++------------+------+------------+
+4 rows in set (0.001 sec)
+
+
+DELETING/DROPING the whole table:
+----------------------------------
+
+
+DROP TABLE student;
+
+

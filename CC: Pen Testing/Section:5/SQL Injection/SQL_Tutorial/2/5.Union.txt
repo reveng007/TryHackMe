@@ -1,0 +1,198 @@
+
+Continuing where we left earlier,
+
+
+--Find a list of employee and branch names
+
+SELECT first_name
+FROM employee;
+
+SELECT branch_name
+FROM branch;
+
++------------+
+| first_name |
++------------+
+| David      |
+| Jan        |
+| Michael    |
+| Angela     |
+| Kelly      |
+| Stanley    |
+| Josh       |
+| Andy       |
+| Jim        |
++------------+
+9 rows in set (0.001 sec)
+
+
++-------------+
+| branch_name |
++-------------+
+| Corporate   |
+| Scranton    |
+| Stamford    |
++-------------+
+3 rows in set (0.000 sec)
+
+
+SELECT first_name
+FROM employee
+UNION 
+SELECT branch_name
+FROM branch;
+
+
++------------+
+| first_name |
++------------+
+| David      |
+| Jan        |
+| Michael    |
+| Angela     |
+| Kelly      |
+| Stanley    |
+| Josh       |
+| Andy       |
+| Jim        |
+| Corporate  |
+| Scranton   |
+| Stamford   |
++------------+
+12 rows in set (0.001 sec)
+
+
+NOTE: Only column can be UNIONed with one other
+
+IF, it happens,
+
+
+SELECT first_name, last_name
+FROM employee
+UNION 
+SELECT branch_name
+FROM branch;
+
+
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+
+-->
+
+
+SELECT first_name AS Company_Names
+FROM employee
+UNION 
+SELECT branch_name
+FROM branch
+UNION
+SELECT client_name
+FROM client;
+
+
++---------------------+
+| Company_Names       |
++---------------------+
+| David               |
+| Jan                 |
+| Michael             |
+| Angela              |
+| Kelly               |
+| Stanley             |
+| Josh                |
+| Andy                |
+| Jim                 |
+| Corporate           |
+| Scranton            |
+| Stamford            |
+| Dunmore Highschool  |
+| Lackawana Country   |
+| FedEx               |
+| John Daly Law, LLC  |
+| Scranton Whitepages |
+| Times Newspaper     |
++---------------------+
+18 rows in set (0.001 sec)
+
+
+
+--Find a list of all clients and branch suppliers names
+
+
+SELECT client_name, branch_id
+FROM client
+UNION
+SELECT supplier_name, branch_id
+FROM branch_supplier;
+
+
+OR,
+
+
+SELECT client_name, client.branch_id
+FROM client
+UNION
+SELECT supplier_name, branch_supplier.branch_id
+FROM branch_supplier;
+
+
++---------------------+-----------+
+| client_name         | branch_id |
++---------------------+-----------+
+| Dunmore Highschool  |         2 |
+| Lackawana Country   |         2 |
+| FedEx               |         3 |
+| John Daly Law, LLC  |         3 |
+| Scranton Whitepages |         2 |
+| Times Newspaper     |         3 |
+| FedEx               |         2 |
+| Hammer Mill         |         2 |
+| J.T. Forms & Labels |         2 |
+| Uni-ball            |         2 |
+| Hammer Mill         |         3 |
+| Patriot Paper       |         3 |
+| Stamford Lables     |         3 |
+| Uni-ball            |         3 |
++---------------------+-----------+
+14 rows in set (0.001 sec)
+
+
+In this case, 
+
+table client as well as table branch_supplier have branch_id as column.
+
+
+--Find a list of all money spent or earned by the company
+
+
+SELECT salary
+FROM employee
+UNION
+SELECT total_sales
+FROM works_with;
+
+
++--------+
+| salary |
++--------+
+| 250000 |
+| 110000 |
+|  75000 |
+|  63000 |
+|  55000 |
+|  69000 |
+|  78000 |
+|  65000 |
+|  71000 |
+| 267000 |
+|  15000 |
+|  33000 |
+| 130000 |
+|   5000 |
+|  26000 |
+|  22500 |
+|  12000 |
++--------+
+17 rows in set (0.001 sec)
+
+

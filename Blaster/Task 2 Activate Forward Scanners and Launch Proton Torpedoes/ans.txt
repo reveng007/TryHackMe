@@ -1,0 +1,28 @@
+
+1. How many ports are open on our target system?
+
+-----> 2
+
+2. Looks like there's a web server running, what is the title of the page we discover when browsing to it?
+
+-----> IIS Windows Server
+
+3. nteresting, let's see if there's anything else on this web server by fuzzing it. What hidden directory do we discover?
+
+-----> /retro
+
+4. Navigate to our discovered hidden directory, what potential username do we discover?
+
+-----> Wade
+
+5. Crawling through the posts, it seems like our user has had some difficulties logging in recently. What possible password do we discover?
+
+-----> parzival
+
+Got it from, replys from Blog post section
+
+6. Log into the machine via Microsoft Remote Desktop (MSRDP) and read user.txt. What are it's contents?
+
+-----> THM{HACK_PLAYER_ONE} 
+
+

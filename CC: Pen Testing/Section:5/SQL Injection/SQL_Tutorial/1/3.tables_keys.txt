@@ -1,0 +1,99 @@
+
+Scenario 1:
+-----------
+
+Student table:
+
++----+-------+---------+
+| id | name  | major   |
++----+-------+---------+
+|  1 |  Kate | Science |
++----+-------+---------+
+|  2 |  Jack | Biology |-------|
++----+-------+---------+       V
+|  3 | Claire| English |      Same ==> But We can differentiate b/w them with the help
++----+-------+---------+       ^       of primary key, which will actually be unique. 
+|  4 | Jack  | Biology |-------|        Here, primary key is 'id' but it can be 
++----+-------+---------+                  anything.
+|  5 | Mike  | Comp.sci|
++----+-------+---------+
+
+
+Scenario 2:
+-----------
+
+Person's table:
+
++---------+-----------+-------------+----+
+|PersonID |	LastName  |	 FirstName | Age |
++---------+-----------+------------+-----+
+|   1	  |   Hansen  | 	Ola	    | 30 |
+|   2	  |  Svendson |   Tove	    | 23 |
+|   3     | Pettersen |    Kari	    | 20 |
++---------+-----------+-------------+----+
+
+Order table:
+
++---------+--------------+-----------+
+| OrderID | OrderNumber	 | PersonID  |
++---------+--------------+-----------+
+|     1   |	  77895      |    3      |
++---------+--------------+-----------+
+|     2	  |   44678	     |    3      |
++---------+--------------+-----------+
+|     3	  |   22456	     |    2      |
++---------+--------------+-----------+
+|     4	  |   24562	     |     1     |
++---------+--------------+-----------+
+
+
+NOTE:
+
+The "PersonID" column in the "Orders" table points to the "PersonID" column in the "Persons" table.
+
+The "PersonID" column in the "Persons" table is the PRIMARY KEY.
+
+The "PersonID" column in the "Orders" table is a FOREIGN KEY.
+
+The FOREIGN KEY constraint is used to build linkage between tables.
+
+
+Branch Supplier:
+
++-----------+----------------+------------------+
+| Person ID | supplier_name  | supply_type      |
++-----------+----------------+------------------+
+|    2      |  Hammer Mill   |    Paper         |
++-----------+----------------+------------------+
+|    2      |   Uni-ball     | Writing Utensils |
++-----------+----------------+------------------+
+|    3      | Patriot Paper  |     PAper        |
++-----------+----------------+------------------+
+|    2      | Forms & Labels | Custom Forms     |
++-----------+----------------+------------------+
+|     3     |   Uni-ball     |  Writing Utensils|
++-----------+----------------+------------------+
+|    3      | Hammer Mill    |      Paper       |
++-----------+----------------+------------------+
+|     3     | Stamford Labels|   Custom Form    |
++-----------+----------------+------------------+
+
+
+The "PersonID" column in the "Branch Supplier" table is not the PRIMARY KEY as it's value is not unique.
+
+The "supplier_name" column in the "Branch Supplier" table is also not the PRIMARY KEY as it's value is not also unique.
+
+
+BUT, we combine both column, "PersonID" and "supplier_name", we will get unique values with this combination.
+
+ ==> PersonID + supplier_name ----> primary key ( combination primary key is called  composite key) 
+
+
+Next small part :
+
+When, composite key = foreign key + foreign key
+
+see : https://www.youtube.com/watch?v=HXV3zeQKqGY&list=PLO8esJgh5iHJvoJH6gACNvMGYhaI14pLz&index=1&t=26s
+
+timeline : 39:23
+

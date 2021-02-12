@@ -1,0 +1,124 @@
+
+Continuing where we left earlier,
+
+
+--Find the number of employees
+
+SELECT COUNT(emp_id)
+FROM employee;
+
+
++---------------+
+| COUNT(emp_id) |
++---------------+
+|             9 |
++---------------+
+1 row in set (0.001 sec)
+
+
+
+SELECT COUNT(super_id)
+FROM employee;
+
++-----------------+
+| COUNT(super_id) |
++-----------------+
+|               8 |
++-----------------+
+1 row in set (0.001 sec)
+
+
+-- Find the number of female employees born after 1970
+
+SELECT COUNT(emp_id)
+FROM employee
+WHERE sex = 'F' AND birth_date > 1970;
+
+
++---------------+
+| COUNT(emp_id) |
++---------------+
+|             2 |
++---------------+
+1 row in set (0.001 sec)
+
+
+-- Find the average of all employee's salaries where sex = male
+
+SELECT AVG(salary)
+FROM employee
+WHERE sex = 'M';
+
+
++-------------+
+| AVG(salary) |
++-------------+
+| 101333.3333 |
++-------------+
+1 row in set (0.001 sec)
+
+
+-- Find the sum of all employee's salaries
+
+SELECT SUM(salary)
+FROM employee;
+
++-------------+
+| SUM(salary) |
++-------------+
+|      836000 |
++-------------+
+1 row in set (0.001 sec)
+
+
+--Find out how many people have entry in sex field
+
+SELECT COUNT(sex),
+FROM employee;
+
++------------+
+| COUNT(sex) |
++------------+
+|          9 |
++------------+
+1 row in set (0.001 sec)
+
+
+More advanced:
+
+
+SELECT COUNT(sex), sex
+FROM employee
+GROUP BY sex;
+
+
++------------+------+
+| COUNT(sex) | sex  |
++------------+------+
+|          3 | F    |
+|          6 | M    |
++------------+------+
+2 rows in set (0.001 sec)
+
+
+--Find the total sales of each salesman
+
+SELECT SUM(total_sales), client_id
+FROM works_with
+GROUP BY client_id;
+
+
++------------------+-----------+
+| SUM(total_sales) | client_id |
++------------------+-----------+
+|            55000 |       400 |
+|           267000 |       401 |
+|            22500 |       402 |
+|            17000 |       403 |
+|            33000 |       404 |
+|            26000 |       405 |
+|           145000 |       406 |
++------------------+-----------+
+7 rows in set (0.001 sec)
+
+

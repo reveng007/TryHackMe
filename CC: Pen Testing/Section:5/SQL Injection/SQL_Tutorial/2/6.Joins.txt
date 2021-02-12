@@ -1,0 +1,47 @@
+
+Continuing where we left earlier,
+
+INSERT INTO brnach VALUES (4, 'Buffalo', NULL, NULL);
+
+
+--Find all the branchs and the names of their managers
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+JOIN branch
+ON employee.emp_id = branch.mgr_id;
+
+
++--------+------------+-------------+
+| emp_id | first_name | branch_name |
++--------+------------+-------------+
+|    100 | David      | Corporate   |
+|    102 | Michael    | Scranton    |
+|    106 | Josh       | Stamford    |
++--------+------------+-------------+
+3 rows in set (0.001 sec)
+
+
+UNION ---> Joining column by column
+
++----+----+
+|    |    |
++----+----+
+
+     +
+
++----+----+
+|    |    |
++----+----+
+
+
+
+JOIN ----> Joining row by row
+
+
++----+----+       +----+----+
+|    |    |   +   |    |    |
++----+----+       +----+----+
+
+
+See: 3:08:38

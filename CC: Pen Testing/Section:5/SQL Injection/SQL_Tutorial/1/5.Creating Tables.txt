@@ -1,0 +1,159 @@
+
+1. Create tables
+
+2. some of the data types,
+
+____
+|
+|   INT                 -------->  Whole Numbers
+|
+|   DECIMAL(10,4)       --->  Decimal Nos. --> Here,'10' digits with '4'decimal places
+|
+|   VARCHAR(n)          -------->  String of text of length n
+|
+|   BLOB                -------->  Binary LArge Object, Stores large data
+|
+|   DATE                -------->  'YYY-MM-DD'
+|____
+  |
+  V
+Used most.
+
+
+	TIMESTAMP           -------->   'YYY-MM-DD HH:MM:SS'  ---->   Used for recording.
+
+
+
+CREATING TABLES:
+----------------
+
+
++----+-------+---------+
+| id | name  | major   |
++----+-------+---------+
+|  1 |  Jack | Biology |
++----+-------+---------+
+|  2 |  Kate | Science |
++----+-------+---------+
+|  3 | Claire| English |      
++----+-------+---------+
+|  4 | Jack  | Biology |
++----+-------+---------+
+|  5 | Mike  | Comp.sci|
++----+-------+---------+
+
+We have to create this.
+
+ANSWER:
+-------
+
+S1:
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT  PRIMARY KEY,
+    name VARCHAR(20),
+    major VARCHAR(20)
+);
+
+OR,
+
+CREATE DATABASE DB1;
+
+CREATE TABLE student (
+    student_id INT,
+    name VARCHAR(20),
+    major VARCHAR(20),
+    PRIMARY KEY(student_id)
+);
+
+
+S2:
+
+
+MariaDB [DB1]>CREATE TABLE student (
+              student_id INT  PRIMARY KEY,
+              name VARCHAR(20),
+              major VARCHAR(20)
+              );
+
+Query OK, 0 rows affected (0.381 sec)
+
+MariaDB [DB1]>DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int(11)     | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.003 sec)
+
+MariaDB [DB1]> DROP TABLE student;
+Query OK, 0 rows affected (0.277 sec)
+
+MariaDB [DB1]> DESCRIBE student;
+ERROR 1146 (42S02): Table 'DB1.student' doesn't exist
+
+
+S3:
+
+
+MariaDB [DB1]>CREATE TABLE student (
+              student_id INT  PRIMARY KEY,
+              name VARCHAR(20),
+              major VARCHAR(20)
+              );
+
+Query OK, 0 rows affected (0.381 sec)
+
+MariaDB [DB1]>DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int(11)     | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.003 sec)
+
+MariaDB [DB1]> ALTER TABLE student ADD gpa DECIMAL(3,2);
+Query OK, 0 rows affected (0.125 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [DB1]> DESCRIBE student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | int(11)      | NO   | PRI | NULL    |       |
+| name       | varchar(20)  | YES  |     | NULL    |       |
+| major      | varchar(20)  | YES  |     | NULL    |       |
+| gpa        | decimal(3,2) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.002 sec)
+
+
+S4:
+
+MariaDB [DB1]> ALTER TABLE student DROP COLUMN gpa;
+     
+               OR,
+
+               ALTER TABLE student DROP gpa;
+
+               
+
+Query OK, 0 rows affected (0.971 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [DB1]> DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int(11)     | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.002 sec)
+
