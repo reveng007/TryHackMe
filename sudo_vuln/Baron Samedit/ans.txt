@@ -1,0 +1,45 @@
+
+Specifically, this was a heap buffer overflow allowing any user to escalate privileges to root -- no misconfigurations required. This exploit works with the default settings, for any user regardless of sudo permissions, which makes it all the scarier. The vulnerability has been patched, but affects any unpatched version of the sudo program from 1.8.2-1.8.31p2 and 1.9.0-1.9.5p1, meaning that it's been around for the last ten years.
+
+The program was very quickly patched (with patched versions making their way into repositories soon after), so this exploit will no longer work on up-to-date targets; however, it is still incredibly powerful.
+
+As with CVE-2019-18634 (which we saw in the second sudovulns room:
+
+https://tryhackme.com/room/sudovulnsbof ), 
+
+this vulnerability is a buffer overflow in the sudo program; however, this time the vulnerability is a heap buffer overflow, as opposed to the stack buffer overflow we saw before. 
+
+The stack is a very regimented section of memory which stores various important aspects of a program. 
+
+The heap, on the other hand, is reserved for dynamic allocation of memory, allowing for more flexibility in how values and constructs are created and accessed by a program. 
+
+As with the previous room, we will not go into a huge amount of detail about how this works in the interests of keeping the content beginner friendly. All we really need to understand is that this vulnerability is incredibly powerful, and extremely wide-reaching.
+
+1. So, first up, what can we do to check whether a system is vulnerable?
+
+---> Fortunately there is a very easy method we can use to check; simply enter this command into a terminal:
+
+$ sudoedit -s '\' $(python3 -c 'print("A"*1000)')
+
+> If the system is vulnerable then this will overwrite the heap buffer and crash the program:
+ 
+ $ sudoedit -s '\' $(python3 -c 'print("A"*1000)')
+
+ malloc(): memory corruption
+ Aborted (core dumped)
+
+Enter this directory (cd Exploit) -- you will see a file called "Makefile". This indicates that we can automatically compile the exploit simply by typing "make" and pressing enter:
+
+see: https://opensource.com/article/18/8/what-how-makefile 
+
+The make program allows you to use macros, which are similar to variables. 
+
+see: https://www.tutorialspoint.com/makefile/makefile_macros.htm
+
+This will create an executable file.
+
+use : cat /etc/os-release ----> to system specs...
+
+Then acc. to that execute the file.
+
+see: https://tryhackme.com/room/sudovulnssamedit
