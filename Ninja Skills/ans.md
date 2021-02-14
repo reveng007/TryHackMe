@@ -244,7 +244,7 @@ done
 [new-user@ip-10-10-76-223 ~]$ bash pat.sh 
 
 Nope1
-9d54da7584015647ba052173b84d45e8007eba94 /mnt/c4ZX
+9d54da7584015647ba052173b84d45e8007eba94  (REDACTED)
 Nope3
 Nope4
 Nope5
