@@ -42,6 +42,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 ### lets visit the site,
 
+![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/En-pass/images/1.ssh_passwd_assumed.png?raw=true) 
+
 ### Assuming that being a password and enpass as user, lets login via ssh,
 ```
 $~> ssh enpass@10.10.17.128
@@ -160,11 +162,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 ## 2.
 
-### Now I traversed:
-
-![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/En-pass/images/1.ssh_passwd_assumed.png?raw=true) 
-
-### and extracted a.zip file to get the username.
+### Now I traversed to zip directory and extracted a.zip file to get the username.
 
 ### I used this script to extract all:
 
