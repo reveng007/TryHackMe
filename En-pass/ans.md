@@ -162,7 +162,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 ### Now I traversed:
 
-![alt text] (http://https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/En-pass/images/1.ssh_passwd_assumed.png) and extracted a.zip file to get the username.
+![alt text] (http://https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/En-pass/images/1.ssh_passwd_assumed.png?raw=true) 
+
+### and extracted a.zip file to get the username.
 
 ### I used this script to extract all:
 
