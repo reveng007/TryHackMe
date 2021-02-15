@@ -282,3 +282,34 @@ Load key "id_rsa": invalid format
 ### root flag: 5d45f08ee939521d59247233d3f8faf
 
  
+```
+```
+$~> ssh <username>@<ip>
+
+------------> In this way we can connect to trgt server with my private key. ( default: .ssh/id_rsa)
+
+$~> ssh -i path-to-priv.key <username>@<ip>
+
+------------> In this way we can connect to trgt server with private key not 
+
+Step: 2
+
+$~> ssh-copy-id <username>@<ip>
+
+------------->  copy our public key to trgt server for key-based authn.
+
+Now, I can login trgt server with my default private key
+
+$~> ssh <username>@<ip>
+
+--------------> We will now be able to authn without any passwd as trgt server have my public key and now I'm logiing in with my private key, so they can authn me.
+```
+
+# Acc. to me,
+
+## Here, We actually have the private key as well as theo ip of the trgt server.
+
+### In normal cases, we actually login to trgt server with OUR OWN private key, NOT TRGT SERVER's private key.
+
+### Here, we are logging into the server as if the  We are the native user of the TRGT SERVER.
+
