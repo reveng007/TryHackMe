@@ -29,6 +29,8 @@ fi
 
 >3. We also always need to end the ***if*** statement with fi
 
+### To compare numbers:
+
 
 |   Operator     |                    Description                                    |  
 | -------------- | ------------------------------------------------------------------| 
@@ -57,6 +59,18 @@ fi
 |      -le       |         ( left  < right  =====> True )                            |
 
 
+### To compare strings:
+
+|   Operator     |                    Description                                    |  
+| -------------- | ------------------------------------------------------------------||                |																   ||       =         |                   equal                                          |
+|                 |																	 |
+|       !=        |                                                                  |
+|                 |                                                                  |
+|       <         | 				  Functions are self explanatory                 |
+|                 | 																 |
+|       >         |  																 |
+
+	
 ### Lets do this,
 
 ```
