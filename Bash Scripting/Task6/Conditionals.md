@@ -32,9 +32,10 @@ fi
 ### To compare numbers:
 
 
-|   Operator     |                    Description                                    |  
+|   Operator     |                    Description                                    |
 | -------------- | ------------------------------------------------------------------| 
-|  -eq or =      |  Checks if the value of two operands are equal or not; if yes,    |         |                |    then the condition becomes true.                    |
+|  -eq or =      |  Checks if the value of two operands are equal or not; if yes,    |
+|		 |		 then the condition becomes true.                    |
 |                |                                                                   |
 |     -ne        |  Checks if the value of two operands are equal or not; if values  | 
 |                |   are not equal, then the condition becomes true.                 |
@@ -61,14 +62,15 @@ fi
 
 ### To compare strings:
 
-|   Operator     |                    Description                                    |  
-| -------------- | ------------------------------------------------------------------||                |																   ||       =         |                   equal                                          |
-|                 |																	 |
-|       !=        |                                                                  |
-|                 |                                                                  |
-|       <         | 				  Functions are self explanatory                 |
-|                 | 																 |
-|       >         |  																 |
+|   Operator      |                    Description                                    | 
+| --------------  | ------------------------------------------------------------------|
+|       =         |                                                                   |
+|                 |								      |									
+|       !=        |                                                                   |
+|                 |                                                                   |
+|       <         |           Functions are self explanatory                          |
+|                 | 								      |
+|       >         |  								      |
 
 	
 ### Lets do this,
