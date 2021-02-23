@@ -1,0 +1,7 @@
+
+rlwrap can be used with nc ---> It will give : 1. pty.spawn feature
+					       2. export TERM=xport-256color
+
+Use: rlwrap nc <ip> <port>
+
+

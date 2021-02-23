@@ -1,0 +1,21 @@
+
+21/tcp   open  ftp          syn-ack
+22/tcp   open  ssh          syn-ack
+80/tcp   open  http         syn-ack
+111/tcp  open  rpcbind      syn-ack
+139/tcp  open  netbios-ssn  syn-ack
+445/tcp  open  microsoft-ds syn-ack
+2049/tcp open  nfs
+
+
+To enumerate smb server: search nmap script in nmap.org
+
+nmap --script smb-enum-shares.nse -p445 10.10.73.70 -vv
+
+See: This room
+
+SITE CPTO. This SITE command specifies the destination file/directory to use for copying from one place to another directly on the server. 
+
+A client wishing to copy a file/directory first sends a SITE CPFR command, then a SITE CPTO.
+
+See: Once see ---> John Hammond video

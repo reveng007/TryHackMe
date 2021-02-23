@@ -1,0 +1,7 @@
+
+port 21, 22, 80
+
+ftp <ip> with anonymous login
+
+copy both the file from ftp server to local with 'mget *'
+
