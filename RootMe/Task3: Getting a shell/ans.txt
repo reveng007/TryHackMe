@@ -1,0 +1,22 @@
+Find a form to upload and get a reverse shell, and find the flag.
+
+As, according to the python script all of the options are valid.., but it actually not as .php is not allowed except all.
+
+.phtml was allowed and I executed it at /uploads directory
+
+.php5 was also allowed
+
+.php2
+
+.php3
+
+.php4
+
+.php5
+
+Actually,
+
+1. user.txt
+
+----> THM{y0u_g0t_a_sh3ll}
+

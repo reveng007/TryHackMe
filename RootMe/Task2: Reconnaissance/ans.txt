@@ -1,0 +1,19 @@
+
+1. Scan the machine, how many ports are open?
+
+----> 2
+
+2. What version of Apache is running?
+
+----> Apache httpd 2.4.29
+
+3. What service is running on port 22?
+
+----> ssh
+
+4. Find directories on the web server using the GoBuster tool.
+
+5. What is the hidden directory?    
+
+----> /panel/
+
