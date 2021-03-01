@@ -1,0 +1,93 @@
+Task1:
+
+1. What was the URL of the page they used to upload a reverse shell?
+
+---> /development/
+
+2. What payload did the attacker use to gain access?
+
+---> Found the POST method 
+     Searched in the hex panel of the Wireshark
+     Searched for php reverse shell pattern
+     And then select it and then copy it as printable text
+     paste in a text editor to remove the garbage(unneeded) value
+
+3. What password did the attacker use to privesc? 
+
+---> In packet number 76, We got the nc reverse shell commands used by the attacker.
+     Where we can see: User ----> james  Password ----> whenevernoteartinstant
+
+4. How did the attacker establish persistence?
+
+---> https://github.com/NinjaJc01/ssh-backdoor
+
+5. Using the fasttrack wordlist, how many of the system passwords were crackable?
+
+---> 
+
+$ john --wordlist=/usr/share/wordlists/fasttrack.txt hashes.txt 
+
+secret12         (bee)
+abcd123          (szymex)
+1qaz2wsx         (muirland)
+secuirty3        (paradox)
+
+----> 4
+
+Task2:
+
+1. What's the default hash for the backdoor?
+
+----> Can be found in the github --> https://github.com/NinjaJc01/ssh-backdoor ---> main.go
+
+2. What's the hardcoded salt for the backdoor? 
+
+----> Can also be found in the github code ---> main.go
+
+salt: 1c362db832f3f864c8c2fe05f2002a05
+
+3. What was the hash that the attacker used? - go back to the PCAP for this!
+
+----> packet 76 in pcapng file
+
+hash: 6d05358f090eea56a238af02e47d44ee5489d234810ef6240280857ec69712a3e5e370b8a41899d0196ade16c0d54327c5654019292cbfe0b5e98ad1fec71bed
+
+4. Crack the hash using rockyou and a cracking tool of your choice. What's the password?
+
+----> 
+
+1. 1st identified the hash that the attcker used with hash-id
+2. Then used hashcat
+
+hash --> sha512
+
+arrange: hash:salt
+
+hashcat -m 1710 "6d05358f090eea56a238af02e47d44ee5489d234810ef6240280857ec69712a3e5e370b8a41899d0196ade16c0d54327c5654019292cbfe0b5e98ad1fec71bed:1c362db832f3f864c8c2fe05f2002a05" /usr/share/wordlists/rockyou.txt
+
+After cracking, to see the password:
+
+hashcat -m 1710 "6d05358f090eea56a238af02e47d44ee5489d234810ef6240280857ec69712a3e5e370b8a41899d0196ade16c0d54327c5654019292cbfe0b5e98ad1fec71bed:1c362db832f3f864c8c2fe05f2002a05" /usr/share/wordlists/rockyou.txt --show
+
+
+Task3:
+
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http    syn-ack Apache httpd 2.4.29 ((Ubuntu))
+2222/tcp open  ssh     syn-ack OpenSSH 8.2p1 Debian 4 (protocol 2.0)
+
+1. The attacker defaced the website. What message did they leave as a heading?
+
+---> H4ck3d by CooctusClan
+
+ssh james@10.10.208.135 -p 2222
+
+pass: <got after cracking with hashcat>
+
+In home/james ---> -rwsr-sr-x 1 root  root  1113504 Jul 22  2020 .suid_bash
+
+$ ./.suid_bash -p
+
+---> we wouls get root shell
+
