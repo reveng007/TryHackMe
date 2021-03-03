@@ -1,0 +1,32 @@
+
+Just logged in to ftp server as anonymous
+
+Then I saw that folder named motread was odd as that folder normally should not be present in root directory
+
+I found 2 files which I downloaded with : mget
+
+To Recover gpg pass with john:
+
+$ /usr/sbin/gpg2john private.asc > hash.txt
+
+
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+		x -- snip -- x
+
+xbox360          (anonforce)
+
+See: https://www.ubuntuvibes.com/2012/10/recover-your-gpg-passphrase-using-john.html
+
+Now as we got the pass, we can recover gpg passphrase:
+
+$ gpg --import private.asc
+
+$ gpg --decrypt backup.pgp 
+
+Now we got the hashdump from passwd file
+
+Then use john
+pass: hikari 
+
+ 
