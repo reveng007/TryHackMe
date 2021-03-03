@@ -1,0 +1,29 @@
+80/tcp open  http    syn-ack Apache httpd 2.4.18 ((Ubuntu)
+
+ gobuster dir -u http://10.10.205.177:80 -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt 
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://10.10.205.177:80
+[+] Threads:        10
+[+] Wordlist:       /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2021/03/03 19:21:40 Starting gobuster
+===============================================================
+/webdav (Status: 401)
+
+Went to the website: https:IP/webdav
+
+Applied for default creds ---> got in ----> Got a file passwd.dav 
+
+----> within that: wampp:$apr1$Wm2VTkFL$PVNRQv7kzqXQIHe14qKA91 (which is nothing but wampp:xampp) Which we predicted earlier.
+
+We injected php rev-shell (using put in webdav) then getting a shell got the user.txt file
+
+Then after that: sudo -l ----> sudo cat /root/root.txt
+
+
