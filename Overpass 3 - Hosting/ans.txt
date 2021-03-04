@@ -1,0 +1,41 @@
+
+PORT   STATE SERVICE REASON  VERSION
+21/tcp open  ftp     syn-ack vsftpd 3.0.3
+22/tcp open  ssh     syn-ack OpenSSH 8.0 (protocol 2.0)
+80/tcp open  http    syn-ack Apache httpd 2.4.37 ((centos))
+Service Info: OS: Unix
+
+Moved to backup directory (gobuster)
+
+Downloaded backup.zip -----> we would get: priv.key, CustomerDetails.xlsx.gpg
+
+
+$ gpg --import priv.key
+
+$ gpg --decrypt CustomerDetails.xlsx.gpg > CustomerDetails.xlsx
+
+
+we got the password in excel spread sheet
+
+Unfortunatly these are not ssh creds
+
+
+Then are used to enumerate FTP
+
+Put the revshell and executed it to get a shell as apache
+
+Then elivated to paradox with creds we got but the shell we got is not stable
+
+Lets login via ssh, We do it via key-based auth...
+
+We willcopy out .pub key to trgt machine's authorised_keys file
+
+Then: ssh paradox@ip
+
+Found nothing, started linpeas ---> wget was not installed so used curl to download
+
+Saw that nfs was running and linpeas reposted a vuln ----> no_root_squash
+
+See: https://blog.hydrashead.net/posts/thm-overpass3/
+
+
