@@ -1,0 +1,23 @@
+
+See this room again: https://tryhackme.com/room/thefindcommand
+
+
+-size n[cwbkMG]
+              File uses less than, more than or exactly n units of space, rounding
+              up.  The following suffixes can be used:
+
+              `b'    for  512-byte  blocks  (this  is  the default if no suffix is
+                     used)
+
+              `c'    for bytes
+
+              `w'    for two-byte words
+
+              `k'    for kibibytes (KiB, units of 1024 bytes)
+
+              `M'    for mebibytes (MiB, units of 1024 * 1024 = 1048576 bytes)
+
+              `G'    for gibibytes (GiB, units of 1024 * 1024 * 1024 =  1073741824
+                     bytes)
+
+
