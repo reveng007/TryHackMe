@@ -1,0 +1,6 @@
+
+Enum4Linux is a tool Which can be used to enumerate smb
+
+See: https://null-byte.wonderhowto.com/how-to/enumerate-smb-with-enum4linux-smbclient-0198049/
+see: https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/
+

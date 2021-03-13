@@ -1,0 +1,6 @@
+python3 linkextractor.py | uniq
+
+python3 api_brute.py
+
+see: https://www.youtube.com/watch?v=0AQHBrxYnqI
+

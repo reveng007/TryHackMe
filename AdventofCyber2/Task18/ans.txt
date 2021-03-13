@@ -1,0 +1,3 @@
+
+tree | md5sum -----> It creates md5sum of all the files under pwd
+
