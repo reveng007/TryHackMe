@@ -34,7 +34,7 @@ $ nc <ip> 12345
 #### we got this:
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/4.nc_12345.png?raw=true)
 ## 4.
-### We got a hint that NFS is misconguired.
+### We got a hint that NFS is misconfiguired.
 > NFS, SMB or AFS(apple filing protocol) all are NAS(Network Attached Storage)
 ### After googling, I found this:
 ### https://www.hackingarticles.in/linux-privilege-escalation-using-misconfigured-nfs/
