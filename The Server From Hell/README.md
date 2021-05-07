@@ -18,7 +18,7 @@
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/2.nmap_1st_100_ports.png?raw=true)
 ### Here, we can see 12345, in every port (from 1 to 100)
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/2.nmap_1st_100_ports_grep.png?raw=true)
-> We can see a nice face got revealed (i.e. we are doing things right, this thing was made intensional)
+> We can see a nice face got revealed (i.e. we are doing things right, this thing was made intensionally)
 ## 3.
 ### Then, We will scan port 12345
 ![alt text](https://github.com/Soumyanil-Biswas/TryHackMe/blob/main/The%20Server%20From%20Hell/images/3.nmap_port_12345.png?raw=true)
