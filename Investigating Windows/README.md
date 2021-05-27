@@ -1,7 +1,7 @@
 
 1. Whats the version and year of the windows machine?
 
-> Windows server 2016
+> > Windows server 2016
 
 process:
 ```
