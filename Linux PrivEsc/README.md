@@ -867,3 +867,7 @@ Remember to restore the original /usr/bin/passwd file and exit the root shell be
 $ mv /tmp/bak /usr/bin/passwd
 ```
 
+## Task21: Privilege Escalation Scripts:
+
+Use: LinEnum.sh, linpeas.sh, lse.sh
+
