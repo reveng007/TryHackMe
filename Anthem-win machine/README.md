@@ -27,6 +27,8 @@ PORT     STATE SERVICE       REASON
 
 4. What is a possible password in one of the pages web crawlers check for?
 
+see: https://www.hackingarticles.in/5-ways-crawl-website/ 
+
 ```
 UmbracoIsTheBest!
 ```
@@ -71,7 +73,10 @@ Saw robot.txt ...
 see: https://www.hackingarticles.in/5-ways-crawl-website/
 
 
-5. What CMS is the website using? (CMS : Content Management 
+5. What CMS is the website using? (CMS : Content Management )
+
+see: https://serpstat.com/blog/how-to-detect-which-cms-a-website-is-using-8-easy-ways/
+
 ```
 I went to /umbraco/ => Got a login website --> then it was clear: CMS => umbraco
 ```
