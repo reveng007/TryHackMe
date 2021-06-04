@@ -138,6 +138,29 @@ process:
 
 Follow the snapshots:
 
+1.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/hidden_file_show.jpg?raw=true)
+
+2.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/backup.png?raw=true)
+
+3.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/no_permission.png?raw=true)
+
+4.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/updating_perm1.png?raw=true)
+
+5.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/updating_perm2.png?raw=true)
+
+6.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/updating_perm3.png?raw=true)
+
+7.
+![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/updating_perm4.png?raw=true)
+
+
+
 
 3. Escalate your privileges to root, what is the contents of root.txt?
 ```
