@@ -141,7 +141,7 @@ Follow the snapshots:
 1.
 ![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/hidden_file_show.jpg?raw=true)
 
-2.
+2. Went to backup folder
 ![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/backup.png?raw=true)
 
 3.
@@ -159,7 +159,7 @@ Follow the snapshots:
 7.
 ![alt text](https://github.com/reveng007/TryHackMe/blob/main/Anthem-win%20machine/updating_perm4.png?raw=true)
 
-
+Then tick the empty boxes to allow access to all read, write, full control
 
 
 3. Escalate your privileges to root, what is the contents of root.txt?
