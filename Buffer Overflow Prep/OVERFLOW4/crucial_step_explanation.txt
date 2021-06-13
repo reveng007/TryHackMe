@@ -76,7 +76,7 @@ kali@reveng ~/T/B/OVERFLOW2> msf-pattern_offset -l 2100 -q 76413176
 
 offset --> 2026  => min. byte to overflow buffer/stack
 
-crashed at --> 2100 => offset present b/w 2000 and 2100 according to fuzzing script
+crashed at --> 2100 => offset present b/w 2000 and 2100 (most probably) according to fuzzing script
 
 
 

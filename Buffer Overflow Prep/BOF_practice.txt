@@ -1,0 +1,50 @@
+oscp       ----> Ti3erius			V
+
+vulnserver   ---> Ti3erius			
+
+slmail	  ----> Ti3erius
+
+brainpain  ---> THM subs
+
+dockstackbufferoverflow  ---> Win10 VM		V
+
+brain pan  ----> THM
+
+gatekeeper   ----> THM
+
+
+------------------------------------------
+
+dockstackbufferoverflow  ---> Win10 VM
+
+see: hacking article for writeup
+
+loop: 192.168.0.108
+
+win: 192.168.0.107
+
+
+port 31337
+
+[+] crashed --> 160 byte  => 150-160bytes(probable)
+
+EIP offset --> 146
+
+bad char --> 00 0a
+
+
+ret: 
+
+080414c3
+080414bf
+
+
+-------------------------------------------
+
+vuln server ----->   Ti3erius
+
+see: john hammond YT for walkthrough
+
+
+
+
