@@ -8,7 +8,7 @@ brainpain  ---> THM subs
 
 dockstackbufferoverflow  ---> Win10 VM		V
 
-brain pan  ----> THM
+brain pan  ----> THM / Win10 VM			V
 
 gatekeeper   ----> THM
 

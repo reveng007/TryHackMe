@@ -1,0 +1,51 @@
+
+9999/tcp  open  abyss
+10000/tcp open  snet-sensor-mgmt
+
+
+Later I found while using '-sV' and 'A' flags with nmap: 
+
+SimpleHTTPServer is running in port 10000
+
+I  went to the website to see, but saw a html page hosted
+
+so, I used gobuster to find files, I found /bin/ => then went to 
+
+that directory to find the executable: brainpan.exe
+
+Which we can analyse in Immunity dbg for testing
+
+
+
+trgt: 10.10.176.243
+
+test: 10.0.2.45
+
+0x005ff700
+0x005ffae0
+
+Crashed at 992 bytes
+
+EIP offset --> 520
+
+ret: 
+
+0x311712f3 => lSB -> \xf3\x12\x17\x31
+
+
+After gaining access, I bash files , I was shocked !!! => In windows, linux
+files???
+
+=> then used : cat checkserv.sh  ---> Then saw that wine is running !!!
+
+
+changed payload from windows to linux as exe file was 32 bit => linux is x86
+
+
+
+Got shell using nc as well as exploit/multi/handler listener
+
+
+Then escalated using GTFO bin:
+
+sudo /home/anansi/bin/anansi_util manual man ==> !/bin/bash
