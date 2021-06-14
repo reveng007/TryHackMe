@@ -38,6 +38,39 @@ root flag -> {Th3_M4y0r_C0ngr4tul4t3s_U}
 
 
 Username: 'mayor'
-Password: '8CL7O1N78MdrCIsV'
+Password hash: '8CL7O1N78MdrCIsV' --> pass: [Actually I forgot to write the
+						passwd, I edited this after
+						solving the challenge]
 
-impacket-psexec mayor:8CL7O1N78MdrCIsV@10.10.238.205
+impacket-psexec mayor:<pass>@10.10.238.205
+
+
+______________________________________________
+
+NOTE:
+
+psexec.py / impacket-psexec  ---> getting nt auth shell
+
+--> see: https://www.hackingarticles.in/remote-code-execution-using-impacket/
+
+
+firefox_decrypt --> Github
+
+
+post/multi/gather/firefox_creds
+
+--> see: https://www.offensive-security.com/metasploit-unleashed/multiple-os-post-gather-modules/
+
+
+post/windows/gather/enum_applications
+
+--> see: https://www.offensive-security.com/metasploit-unleashed/windows-post-gather-modules/
+
+
+smb enumeration
+
+--> see: https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/
+_________________________________________________________
+
+
+
