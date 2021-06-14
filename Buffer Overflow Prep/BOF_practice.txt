@@ -10,7 +10,7 @@ dockstackbufferoverflow  ---> Win10 VM		V
 
 brain pan  ----> THM / Win10 VM			V
 
-gatekeeper   ----> THM
+gatekeeper   ----> THM ==> same as dockstackbufferoverflow    V
 
 
 ------------------------------------------

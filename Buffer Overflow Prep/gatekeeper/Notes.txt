@@ -1,0 +1,43 @@
+Did nmap scan ---> got port 31337 (binary file for BOF)
+
+		   port 139 --> netbios
+		
+		   port 3389 --> RDP (I was at 1st brute forcing RDp with
+					hydra)
+
+		But no solutions at all!!!
+
+Became quite suspecious abt this...
+
+
+Then saw smb was open...
+
+Searched for it : smb enumeration
+
+see: https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/
+
+[ Add Process ]
+
+I got the binary to download, then transferred it to win10 for testing in
+immunity dbg for BOF
+
+user flag -> {H4lf_W4y_Th3r3}
+
+
+Rename the files by manually viewing them.....
+
+NOTE!!
+I FOUND THAT Renaming should be exactly same as done 
+
+here: https://medium.com/@j.w.helle/official-gatekeeper-writeup-my-first-machine-at-tryhackme-928f320211a
+
+Why I don't know still now...
+
+
+root flag -> {Th3_M4y0r_C0ngr4tul4t3s_U}
+
+
+Username: 'mayor'
+Password: '8CL7O1N78MdrCIsV'
+
+impacket-psexec mayor:8CL7O1N78MdrCIsV@10.10.238.205
