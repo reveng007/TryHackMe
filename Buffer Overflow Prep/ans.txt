@@ -10,6 +10,8 @@ Pentester academy win32 BOF
 see: hacking article BOF tuts
 
 
+also see: John hammond BOF video
+
 While using exploit.py, 
 use 
 

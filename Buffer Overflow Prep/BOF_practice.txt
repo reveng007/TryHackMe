@@ -1,6 +1,6 @@
-oscp       ----> Ti3erius			V
+oscp       ----> Ti3erius - THM			V
 
-vulnserver   ---> Ti3erius			
+vulnserver   ---> Ti3erius			V
 
 slmail	  ----> Ti3erius
 
@@ -46,5 +46,28 @@ vuln server ----->   Ti3erius
 see: john hammond YT for walkthrough
 
 
+trgt: 10.10.211.72
+
+9999/tcp  open  abyss
+
+
+0x018bf208   --> start A
+0x018bfdb0   --> end A
+
+crashed at 2984 bytes
+
+offset --> 2003
+
+ret addr:
+---------
+
+625011af  => LSB --> \xaf\x11\x50\x62
+625011bb  => LSB --> \xbb\x11\x50\x62
+625011c7  => LSB --> \xc7\x11\x50\x62
+625011d3  => LSB --> \xd3\x11\x50\x62
+625011eb  => LSB --> \xeb\x11\x50\x62
+625011f7  => LSB --> \xf7\x11\x50\x62
+62501203  => LSB --> \x03\x12\x50\x62
+62501205  => LSB --> \x05\x12\x50\x62
 
 
