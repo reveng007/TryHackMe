@@ -1,0 +1,5 @@
+set metadata C:\tmp\tmp.cabs 
+set context persistent nowriters 
+add volume c: alias someAlias 
+create 
+expose %someAlias% z: 

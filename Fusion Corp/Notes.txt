@@ -1,0 +1,147 @@
+
+see: https://zime64.gitlab.io/writeups/fusioncorp
+see: https://shishirsubedi.com.np/thm/fusioncorp/
+
+
+nmap 10.10.68.217 -p- -sV -A -vv
+
+-->
+53/tcp    open  domain        syn-ack Simple DNS Plus
+80/tcp    open  http          syn-ack Microsoft IIS httpd 10.0
+|_http-favicon: Unknown favicon MD5: FED84E16B6CCFE88EE7FFAAE5DFEFD34
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: eBusiness Bootstrap Template
+88/tcp    open  kerberos-sec  syn-ack Microsoft Windows Kerberos (server time: 2021-06-17 09:02:24Z)
+135/tcp   open  msrpc         syn-ack Microsoft Windows RPC
+139/tcp   open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
+389/tcp   open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: fusion.corp0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds? syn-ack
+464/tcp   open  kpasswd5?     syn-ack
+593/tcp   open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped    syn-ack
+3268/tcp  open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: fusion.corp0., Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped    syn-ack
+3389/tcp  open  ms-wbt-server syn-ack Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: FUSION
+|   NetBIOS_Domain_Name: FUSION
+|   NetBIOS_Computer_Name: FUSION-DC
+|   DNS_Domain_Name: fusion.corp
+|   DNS_Computer_Name: Fusion-DC.fusion.corp
+|   Product_Version: 10.0.17763
+|_  System_Time: 2021-06-17T09:03:17+00:00
+| ssl-cert: Subject: commonName=Fusion-DC.fusion.corp
+| Issuer: commonName=Fusion-DC.fusion.corp
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-03-02T19:26:49
+| Not valid after:  2021-09-01T19:26:49
+| MD5:   b6f5 76b6 8a9e 6a30 ed3c 7d67 ebf3 797c
+| SHA-1: bdba d8ee c2ba d088 f1a0 7395 891c 50b1 0b6e 020d
+| -----BEGIN CERTIFICATE-----
+| MIIC7jCCAdagAwIBAgIQKv6aqVjajKFAWxZZ2d1B3zANBgkqhkiG9w0BAQsFADAg
+| MR4wHAYDVQQDExVGdXNpb24tREMuZnVzaW9uLmNvcnAwHhcNMjEwMzAyMTkyNjQ5
+| WhcNMjEwOTAxMTkyNjQ5WjAgMR4wHAYDVQQDExVGdXNpb24tREMuZnVzaW9uLmNv
+| cnAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9qrdr0bQmqAl45ASO
+| BrfdZbQidhm7xyXzNhzhvq8mIyOWlY+mzAHtlJMNHFC4SVBKoRlm9HrWQQ9K2lYi
+| 6ps214Y/cIlFkqt3kJbHfFfq6h4KmJMmWcyIN1iCftdAqOwM0h5VhpRD3baZA3VU
+| bvVuBOpEO7brd2wOj2rXMzAjhDlWrS6VD6lFq6MYySDKKsT5FBRBSAUOgCC64dKI
+| qEOQV0QIUtXqoy/XinPgLSKZlOgP52m7dFe7NWOzYbl/aGCEOL6GJwywQG3uuVne
+| rk9AwbygmVtCvWJxkBV79LVdsE93bERDid7XBD1hD4RP8pt8cIM5wYWQLHAN20gR
+| qByJAgMBAAGjJDAiMBMGA1UdJQQMMAoGCCsGAQUFBwMBMAsGA1UdDwQEAwIEMDAN
+| BgkqhkiG9w0BAQsFAAOCAQEAciZdq2RMsEaz5hbaL9Eni/xSW87/++xvMXNLZ8jS
+| y7MUyLLN4fDQbcmFaIV/K6nzV62tGSdhy1eH+j1xwojinZzv83sPelMOSPLRi/H/
+| OWWOr7yfQ1hhJW4DsV7yzS7+Dm5qWgTYUpb6D+FHaAw7CFiAdMpyzmlToYQTnpJH
+| yXjecuDsIFZJqbLJhkGLlsdax77Bd1JVxWDVYOx9HZ7F9oMxMo7FPMrZyF9MV+to
+| g/RTVJbEbhM5dVFGavMrFVxPrjtqI1CrGCxMLKNi1KvvV0f9Is1L4aLOnVtu2qX1
+| JLpkT+fsloGRvEVKRjkepKtGbykoGSWuw9FnN40GVdRVVA==
+|_-----END CERTIFICATE-----
+|_ssl-date: 2021-06-17T09:03:55+00:00; +1s from scanner time.
+9389/tcp  open  mc-nmf        syn-ack .NET Message Framing
+49667/tcp open  msrpc         syn-ack Microsoft Windows RPC
+49669/tcp open  msrpc         syn-ack Microsoft Windows RPC
+49670/tcp open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
+49671/tcp open  msrpc         syn-ack Microsoft Windows RPC
+49674/tcp open  msrpc         syn-ack Microsoft Windows RPC
+49695/tcp open  msrpc         syn-ack Microsoft Windows RPC
+49774/tcp open  msrpc         syn-ack Microsoft Windows RPC
+Service Info: Host: FUSION-DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 0s, deviation: 0s, median: 0s
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 15203/tcp): CLEAN (Timeout)
+|   Check 2 (port 3919/tcp): CLEAN (Timeout)
+|   Check 3 (port 22413/udp): CLEAN (Timeout)
+|   Check 4 (port 18483/udp): CLEAN (Timeout)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2021-06-17T09:03:18
+|_  start_date: N/A
+
+
+port:	139 --> smb => performed all forms of enumeration 
+	445 --> smb =>    "       "    "   "    "
+	see: https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/
+
+      	389 --> ldap => AD is running, used for queries
+
+	3268 --> ldap => AD is running, used for requesting informations
+
+	seeing ldap, we can tell pentesting will invlove AD pentesting knowledge
+
+	464 --> kerberos Password change => kpasswd5? ----> It made me curious but no interaction was involed with it during enumeration
+
+Found a file named, employees.ods(excel) from the website which was hosted in port 80 in 
+backup directory
+
+=> I opened it online and got
+
+   Name                 Username
+Jhon Mickel	        jmickel	
+Andrew Arnold	        aarnold	
+Lellien Linda 	        llinda	
+Jhon Powel	        jpowel	
+Dominique Vroslav	dvroslav	
+Thomas Jeffersonn	tjefferson	
+Nola Maurin	        nmaurin	
+Mira Ladovic	        mladovic	
+Larry Parker	        lparker	
+Kay Garland	        kgarland	
+Diana Pertersen	        dpertersen	
+
+Username -> 1st_letter_of_name:last_name
+
+Copied all username and pasted all of them to  a file
+
+see: https://devconnected.com/how-to-search-ldap-using-ldapsearch-examples/
+see: https://book.hacktricks.xyz/pentesting/pentesting-ldap
+---> port: 389, 636, 3268, 3269 all are ports for ldap
+
+used `ldapsearch` to find the domain name: 
+
+ldapsearch -x -h 10.10.33.48 -s base namingcontexts
+
+Then used `kerbrute` find out users on trgt machine:
+
+kerbrute userenum -d 'fusion.corp' --dc 10.10.33.48 users.txt
+
+After getting users add thse users to seperate file:
+
+using  GetNPUsers.py
+
+see: hackthebox forum: GetNPUsers.py Explained
+
+Evil-winrm
+
+see: https://www.hackingarticles.in/evil-winrm-winrm-pentesting-framework/
+
+
