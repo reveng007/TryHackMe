@@ -58,6 +58,44 @@ S4.
 --> New Technology File System
 
 
+### NOTE:
+
+> Another feature of `NTFS` is `Alternate Data Streams (ADS)`.
+
+> `Alternate Data Streams (ADS)` is a file attribute specific to `Windows NTFS (New Technology File System)`.
+
+> Every file has at least one data stream ($DATA), and ADS allows files to contain more than one stream of data. Natively Window Explorer doesn't display ADS to the user. There are 3rd party executables that can be used to view this data, but Powershell gives you the ability to view ADS for files.
+
+> From a `security` perspective, malware writers have used ADS to `hide data`.
+
+> Not all its uses are malicious. For example, when you download a file from the Internet, there are _identifiers written to ADS_ to identify that the file was 
+_downloaded_ from the Internet.
+
+> **`ADS`** was originally intended to store **`macintosh`** File
+
+> Intersting facts 😈:
+
+> --> In one of the video, it was told that **`ADS`** doesn't change a file's checksum, but I found that it changed the checksum of the file.
+
+
+
+
+
+see:
+1. [infosec-YT](https://www.youtube.com/watch?v=rF4sIxDIhEk)
+
+2. [DrapsTV-YT-Video1](https://www.youtube.com/watch?v=qBrFW3gpjpM)
+
+3. [DrapsTV-YT-Video2](https://www.youtube.com/watch?v=HXBjb6j0Y2s)
+
+4. [Abuse of ADS](https://www.deepinstinct.com/2018/06/12/the-abuse-of-alternate-data-stream-hasnt-disappeared/)
+
+5. [malwarebytes](https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/)
+
+6. 
+
+
+
 Task5: The Windows\System32 Folders
 ------------------------------------
 
