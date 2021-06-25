@@ -448,7 +448,8 @@ So, from our enumeration stage, we know:
 Using this information, let's try accessing this telnet port, and using that as a foothold to get a full reverse shell on the machine!
 
 
-![](https://raw.githubusercontent.com/reveng007/TryHackMe/main/_SUBSCRIPTION_/paths/Complete%20Beginner/03.Networking%20Fundamentals/03.Network%20Services/getting_reverse_shell_connection.png?raw=true)
+![](https://raw.githubusercontent.com/reveng007/TryHackMe/main/_SUBSCRIPTION_/paths/Complete%20Beginner/03.Networking%20Fundamentals/03.Network%20Services/not-getting_any_output.png?raw=true)
+
 
 
 1. Great! It's an open telnet connection! What welcome message do we receive?
@@ -492,7 +493,8 @@ R = export the payload in raw format
 
 --> nc -lvp 4444
 
-# ![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/3.Networking%20Fundamentals/03.Network%20Services/getting_reverse_shell_connection.png?raw=true)
+
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/03.Networking%20Fundamentals/03.Network%20Services/getting_reverse_shell_connection.png?raw=true)
 
 
 flag.txt --> `THM{y0u_g0t_th3_t3ln3t_fl4g}`
