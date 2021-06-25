@@ -448,7 +448,7 @@ So, from our enumeration stage, we know:
 Using this information, let's try accessing this telnet port, and using that as a foothold to get a full reverse shell on the machine!
 
 
-![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/3.Networking%20Fundamentals/03.Network%20Services/not-getting_any_output.png?raw=true)
+![](https://raw.githubusercontent.com/reveng007/TryHackMe/main/_SUBSCRIPTION_/paths/Complete%20Beginner/03.Networking%20Fundamentals/03.Network%20Services/getting_reverse_shell_connection.png?raw=true)
 
 
 1. Great! It's an open telnet connection! What welcome message do we receive?
