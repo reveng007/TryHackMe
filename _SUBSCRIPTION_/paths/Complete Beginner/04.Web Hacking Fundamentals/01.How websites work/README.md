@@ -150,10 +150,10 @@ HTML Injection is a vulnerability that occurs when:
 
 2. If a website fails to **sanitise user input (filter any "malicious" text that a user inputs into a website)**, and that _input is used on the page_, an **attacker can inject HTML code into a vulnerable website**.
 
-![](login_panel1.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/01.How%20websites%20work/login_panel1.png?raw=true)
 
 
-![](login_panel2.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/01.How%20websites%20work/login_panel2.png?raw=true)
 
 
 ##### Login panel front end code:
