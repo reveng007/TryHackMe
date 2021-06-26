@@ -113,7 +113,7 @@ document.getElementById("demo").innerHTML = "Hack the Planet";
 HTML elements can also have events, such as **`"onclick"`** or **`"onhover"`** that execute JavaScript when the event occurs. 
 
 The following code changes the text of the element with the demo ID to Button Clicked: 
-```
+```html
 <button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>
 ```
 
@@ -199,7 +199,7 @@ We can see that **name** is not **sanitized!**, _directly inputed strings are us
 1. View the website on this task and inject HTML so that a malicious link to http://hacker.com is shown.
 
 Malicious Input:
-```
+```html
 <a href="http://hacker.com">
 ```
 
