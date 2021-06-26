@@ -131,11 +131,11 @@ There's a web server running on http://10.10.184.254:8081. Connect to it and get
 Either, visit the webpage and then go to request section in dev tools of the client browser
 Or use:
 
-	curl -c - ip:port/ctf/getcookie
+	curl -c - http://ip:port/ctf/getcookie
 
 
 4. What's the "Set a cookie" flag?
 
-curl --cookie 'flagpls=flagpls' http://ip:port/ctf/getcookie
+curl --cookie 'flagpls=flagpls' http://ip:port/ctf/sendcookie
 
 For verbose: use --> -v
