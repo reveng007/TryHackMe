@@ -208,7 +208,7 @@ As the name suggests, Repeater allows us to repeat requests we've already made. 
 
 4. Now that we've sent the request to Repeater, let's try adjusting the request such that we are sending a single quote (') as both the email and password. What error is generated from this request?
 
-![](Burp_image?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/03.Burp%20Suite/Burp_view_1.png?raw=true)
 
 --> `SQLITE_ERROR`
 
@@ -354,11 +354,11 @@ Similarly, Comparer, as you might have guessed is a tool we can use to compare d
 
 1. Let's first take a look at decoder by revisiting an old friend. Previously we discovered the scoreboard within the site JavaScript. Return to our target tab and find the API endpoint highlighted in the following request:
 
-![](Burp_view_2?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/03.Burp%20Suite/Burp_view_2.png?raw=true)
 
 2. Copy the first line of that request and paste it into Decoder. Next, select 'Decode as ...' URL
 
-![](Burp_view_3?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/03.Burp%20Suite/Burp_view_3.png?raw=true)
 
 3. What character does the %20 in the request we copied into Decoder decode as?
 
