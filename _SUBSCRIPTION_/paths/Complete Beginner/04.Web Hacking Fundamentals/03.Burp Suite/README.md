@@ -233,9 +233,9 @@ At its core, Intruder serves one purpose: **automation**.
 
 |	**Repeater**	      |  	**Intruder**			 |
 | ---------------------------- | --------------------------------------- |
-| While Repeater best handles  | Intruder is meant for _repeat_ testing  |
-| _experimentation or one-off_ | once a _proof of concept_ has been |
-| _testing_.		      | established.|
+| While Repeater best handles  | Intruder is meant for _`repeat`_ testing  |
+| _`experimentation or one-off`_ | once a _`proof of concept`_ has been |
+| _`testing`_.		      | established.|
 
 
 As per the [Burp Suite documentation](https://portswigger.net/burp/documentation/desktop/tools/intruder/using), some common uses are as follows:
