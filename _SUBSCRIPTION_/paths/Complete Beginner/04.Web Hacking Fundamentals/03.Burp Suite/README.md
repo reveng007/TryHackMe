@@ -231,11 +231,11 @@ Task9: Help! There's an Intruder!
 Arguably the `most powerful tool in Burp Suite`, **`Intruder`** can be used for many things ranging from ***fuzzing to brute-forcing***.
 At its core, Intruder serves one purpose: **automation**. 
 
-	**Repeater**	      |  	**Intruder**
- ---------------------------- | ---------------------------------------
- While Repeater best handles  | Intruder is meant for _repeat_ testing
- _experimentation or one-off_ | once a _proof of concept_ has been
- _testing_.		      | established.
+|	**Repeater**	      |  	**Intruder**			 |
+| ---------------------------- | --------------------------------------- |
+| While Repeater best handles  | Intruder is meant for _repeat_ testing  |
+| _experimentation or one-off_ | once a _proof of concept_ has been |
+| _testing_.		      | established.|
 
 
 As per the [Burp Suite documentation](https://portswigger.net/burp/documentation/desktop/tools/intruder/using), some common uses are as follows:
