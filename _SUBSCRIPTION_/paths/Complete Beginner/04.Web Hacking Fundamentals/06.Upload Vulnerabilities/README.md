@@ -188,7 +188,7 @@ We'll be looking at two types of file type validation:
 
 The MIME type for a file upload is attached in the header of the request, and looks something like this:
 
-![](MIME.jpg?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/MIME.png?raw=true)
 
 
 MIME types follow the format `<type>/<subtype>`.
@@ -279,7 +279,7 @@ Let's assume that, once again, we have found an upload page on a website:
 
 As always, we'll take a look at the source code. Here we see a basic Javascript function checking for the MIME type of uploaded files:
 
-![](pic1.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic1.png?raw=true)
 
 In this instance we can see that the filter is using a whitelist to exclude any MIME type that isn't `image/jpeg`.
 
@@ -290,47 +290,47 @@ Our next step is to attempt a file upload -- as expected, if we choose a JPEG, t
 let's start Burpsuite
 
 
-![](pic2.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic2.png?raw=true)
 
 When we click the "Forward" button at the top of the window, we will then see the server's response to our request. Here we can delete, comment out, or otherwise break the Javascript function before it has a chance to load:
 
-![](pic3.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic3.png?raw=true)
 
 
 Having deleted the function, we once again click "Forward" until the site has finished loading, and are now free to upload any kind of file to the website:
 
 
-![](pic4.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic4.png?raw=true)
 
 
 It's worth noting here that Burpsuite will not, by default, intercept any external Javascript files that the web page is loading. If you need to edit a script which is not inside the main page being loaded, you'll need to go to the "Options" tab at the top of the Burpsuite window, then under the "Intercept Client Requests" section, edit the condition of the first line to remove `^js$|`:
 
 
-![](pic5.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic5.png?raw=true)
 
 
 We've already bypassed this filter by intercepting and removing it prior to the page being loaded, but let's try doing it by uploading a file with a legitimate extension and MIME type, then intercepting and correcting the upload with Burpsuite.
 
 Having reloaded the webpage to put the filter back in place, let's take the reverse shell that we used before and rename it to be called "shell.jpg". As the MIME type (based on the file extension) automatically checks out, the Client-Side filter lets our payload through without complaining:
 
-![](pic6.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic6.png?raw=true)
 
 
 Once again we'll activate our Burpsuite intercept, then click "Upload" and catch the request:
 
-![](pic7.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic7.png?raw=true)
 
 
 Observe that the MIME type of our PHP shell is currently `image/jpeg`. We'll change this to `text/x-php`, and the file extension from `.jpg` to `.php`, then forward the request to the server:
 
 
-![](pic8.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic8.png?raw=true)
 
 
 Now, when we navigate to `http://demo.uploadvulns.thm/uploads/shell.php` having set up a netcat listener, we receive a connection from the shell!
 
 
-![](pic9.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic9.png?raw=true)
 
 
 We've covered in detail two ways to bypass a Client-Side file upload filter. Now it's time for you to give it a shot for yourself! Navigate to `java.uploadvulns.thm` and bypass the filter to get a reverse shell. Remember that not all client-side scripts are inline! As mentioned previously, Gobuster would be a very good place to start here -- the upload directory name will be changing with every new challenge.
