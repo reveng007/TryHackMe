@@ -1,6 +1,8 @@
-```
-echo "10.10.170.88    overwrite.uploadvulns.thm shell.uploadvulns.thm java.uploadvulns.thm annex.uploadvulns.thm magic.uploadvulns.thm jewel.uploadvulns.thm" | sudo tee -a /etc/hosts
-```
+
+Add this:
+
+`echo "10.10.170.88    overwrite.uploadvulns.thm shell.uploadvulns.thm java.uploadvulns.thm annex.uploadvulns.thm magic.uploadvulns.thm jewel.uploadvulns.thm" | sudo tee -a /etc/hosts`
+
 For different virtual hosting...
 
 Task2: Introduction
