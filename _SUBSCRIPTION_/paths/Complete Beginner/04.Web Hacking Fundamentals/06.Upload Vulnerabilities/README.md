@@ -378,14 +378,14 @@ In this instance, the code is looking for the last period (`.`) in the file name
 
 We can see that the code is filtering out the `.php` and `.phtml` extensions, so if we want to upload a PHP script we're going to have to find another extension. The [wikipedia page](https://en.wikipedia.org/wiki/PHP) for PHP gives us a bunch of options we can try -- many of them bypass the filter (which only blocks the two aforementioned extensions), but it appears that the server is configured not to recognise them as PHP files, as in the below example:
 
-![](pic10.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic10.png?raw=true)
 
 This is actually the default for Apache2 servers, at the time of writing; however, the sysadmin may have changed the default configuration (or the server may be out of date), so it's well worth trying.
 
 
 Eventually we find that the `.phar` extension bypasses the filter -- and works -- thus giving us our shell:
 
-![](pic11.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic11.png?raw=true)
 
 ---------------------------------------------
 
@@ -394,17 +394,17 @@ Let's have a look at another example, with a different filter. This time we'll d
 
 Once again, we have our upload form:
 
-![](pic12.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic12.png?raw=true)
 
 Ok, we'll start by scoping this out with a completely legitimate upload. Let's try uploading the `spaniel.jpg` image from before:
 
-![](pic13.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic13.png?raw=true)
 
 
 Well, that tells us that JPEGS are accepted at least. Let's go for one that we can be pretty sure will be rejected (`shell.php`):
 
 
-![](picpic14.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic14.png?raw=true)
 
 
 Can't say that was unexpected.
@@ -430,12 +430,12 @@ ELSE:
 
 When we try to upload our file we get a success message. Navigating to the `/uploads` directory confirms that the payload was successfully uploaded:
 
-![](pic15.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic15.png?raw=true)
 
 Activating it, we receive our shell:
 
 
-![](pic16.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic16.png?raw=true)
 
 
 This is by no means an exhaustive list of upload vulnerabilities related to file extensions.
@@ -494,7 +494,7 @@ AAAA
 
 Save the file and exit. Next we're going to reopen the file in `hexeditor` (which comes by default on Kali), or any other tool which allows you to see and edit the shell as hex. In hexeditor the file looks like this:
 
-![](pic17.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/04.Web%20Hacking%20Fundamentals/06.Upload%20Vulnerabilities/pic17.png?raw=true)
 
 Note the four bytes in the red box: they are all `41`, which is the hex code for a capital "A" -- exactly what we added at the top of the file previously.
 
