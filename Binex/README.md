@@ -1,5 +1,8 @@
 see: [write-up](https://www.notion.so/BINEX-WRITE-UP-346d388fc1a34ceb83bfbb20318fb58b)
 
+see: [writeup-alternative_interesting](https://github.com/Syp1ng/Writeups/blob/master/THM/Binex.pdf)
+This method makes the use of python script
+
 
 Task1: Gain Initial access
 --------------------------
