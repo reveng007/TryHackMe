@@ -332,9 +332,15 @@ i) _stagers_
 ii) _stages_
 
 #### Explanation:
-The first part is called the _stager_. This is a piece of code which is executed directly on the victim machine. It connects back to a waiting listener (attacker), but doesn't actually contain any reverse shell code by itself. And _via this established connection_, **stager** loads the **real bulk payload (stage)**, executing it directly and preventing it from _`touching the disk`_ where it could be caught by _traditional anti-virus solutions_.
+The first part is called the _stager_. This is a piece of code which is executed directly on the victim machine. It connects back to a waiting listener (attacker), but doesn't actually contain any reverse shell code by itself. And _via this established connection_, **stager** downloads the **real bulk payload (stage)**, executing it directly (passing execution to it) and preventing it from _`touching the disk`_ where it could be caught by _traditional anti-virus solutions_.
 
 So, _stager_ is only used to establish connection b/w attacker and victim and load _stage_ and _stage_ does complex tasks like VNC, Meterpreter, etc...
+
+see: 
+
+[cobaltstrike-staged payload](https://blog.cobaltstrike.com/2013/06/28/staged-payloads-what-pen-testers-should-know/)
+
+[cobaltstrike-stageless payload](https://blog.cobaltstrike.com/2016/06/15/what-is-a-stageless-payload-artifact/)
 
 
 #### Analogy:
