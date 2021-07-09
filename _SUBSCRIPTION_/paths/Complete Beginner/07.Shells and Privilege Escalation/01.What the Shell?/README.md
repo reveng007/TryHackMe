@@ -55,7 +55,7 @@ With any of the above techniques, it's useful to be able to change your terminal
 
 First, open another terminal and run stty -a. This will give you a large stream of output. Note down the values for "rows" and columns:
 
-![](pic1.png?raw=true)
+![](https://github.com/reveng007/TryHackMe/blob/main/_SUBSCRIPTION_/paths/Complete%20Beginner/07.Shells%20and%20Privilege%20Escalation/01.What%20the%20Shell%3F/pic1.png?raw=true)
 
 
 Next, in your reverse/bind shell, type in:
