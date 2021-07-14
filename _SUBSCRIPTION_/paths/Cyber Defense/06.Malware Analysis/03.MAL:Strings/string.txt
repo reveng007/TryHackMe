@@ -1,0 +1,219 @@
+!This program cannot be run in DOS mode.
+s_Rich
+.text
+`.rdata
+@.data
+.rsrc
+@.reloc
+h+.@
+h\;@
+h1-@
+SVWP
+Y_^[
+hp-@
+$SVW
+@t=f
+Y_^[
+4SVW
+HHuT
+Y_^[
+hX&@
+h\1@
+hP1@
+hL1@
+h@1@
+Y_^[
+Y_^[
+h|1@
+hD(@
+>csm
+h[)@
+Y__^[
+SVW3
+ntel
+5ineI
+5Genu
+t#=`
+_^[3
+% 1@
+%41@
+%(1@
+%$1@
+%01@
+% 0@
+%|0@
+bad allocation
+Unknown exception
+bad array new length
+bad cast
+cmnatic
+TryHackMeMerchWhen
+THM{Not_So_Hidden_Flag}
+Welcome to the login portal!
+Enter your Username: 
+Input your password: 
+Access Granted!
+Wrong username or password!
+pause
+string too long
+RSDS!
+C:\Users\CMNatic\Desktop\TryHackMe\Malware Pathway\Material\Binaries\LoginForm\Release\LoginForm.pdb
+GCTL
+.text$di
+.text$mn
+.text$x
+.text$yd
+.idata$5
+.00cfg
+.CRT$XCA
+.CRT$XCAA
+.CRT$XCL
+.CRT$XCZ
+.CRT$XIA
+.CRT$XIAA
+.CRT$XIAC
+.CRT$XIZ
+.CRT$XPA
+.CRT$XPZ
+.CRT$XTA
+.CRT$XTZ
+.rdata
+.rdata$r
+.rdata$sxdata
+.rdata$zzzdbg
+.rtc$IAA
+.rtc$IZZ
+.rtc$TAA
+.rtc$TZZ
+.xdata$x
+.idata$2
+.idata$3
+.idata$4
+.idata$6
+.data
+.data$r
+.bss
+.rsrc$01
+.rsrc$02
+??1_Lockit@std@@QAE@XZ
+??0_Lockit@std@@QAE@H@Z
+?cout@std@@3V?$basic_ostream@DU?$char_traits@D@std@@@1@A
+?_Getgloballocale@locale@std@@CAPAV_Locimp@12@XZ
+?uncaught_exception@std@@YA_NXZ
+?cin@std@@3V?$basic_istream@DU?$char_traits@D@std@@@1@A
+?id@?$ctype@D@std@@2V0locale@2@A
+?_Xlength_error@std@@YAXPBD@Z
+?_Ipfx@?$basic_istream@DU?$char_traits@D@std@@@std@@QAE_N_N@Z
+?snextc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ
+?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ
+?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ
+?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPBD_J@Z
+?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z
+?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHXZ
+?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z
+?getloc@ios_base@std@@QBE?AVlocale@2@XZ
+?_Getcat@?$ctype@D@std@@SAIPAPBVfacet@locale@2@PBV42@@Z
+??Bid@locale@std@@QAEIXZ
+MSVCP140.dll
+__CxxFrameHandler3
+__std_exception_destroy
+__std_exception_copy
+__std_terminate
+_CxxThrowException
+__current_exception
+__current_exception_context
+memset
+_except_handler4_common
+VCRUNTIME140.dll
+system
+_invalid_parameter_noinfo_noreturn
+_callnewh
+malloc
+_seh_filter_exe
+_set_app_type
+__setusermatherr
+_configure_narrow_argv
+_initialize_narrow_environment
+_get_initial_narrow_environment
+_initterm
+_initterm_e
+exit
+_exit
+_set_fmode
+__p___argc
+__p___argv
+_cexit
+_c_exit
+_register_thread_local_exe_atexit_callback
+_configthreadlocale
+_set_new_mode
+__p__commode
+_initialize_onexit_table
+_register_onexit_function
+_crt_atexit
+free
+_controlfp_s
+terminate
+api-ms-win-crt-runtime-l1-1-0.dll
+api-ms-win-crt-heap-l1-1-0.dll
+api-ms-win-crt-math-l1-1-0.dll
+api-ms-win-crt-stdio-l1-1-0.dll
+api-ms-win-crt-locale-l1-1-0.dll
+UnhandledExceptionFilter
+SetUnhandledExceptionFilter
+GetCurrentProcess
+TerminateProcess
+IsProcessorFeaturePresent
+QueryPerformanceCounter
+GetCurrentProcessId
+GetCurrentThreadId
+GetSystemTimeAsFileTime
+InitializeSListHead
+IsDebuggerPresent
+GetModuleHandleW
+KERNEL32.dll
+memcpy
+memmove
+.?AVtype_info@@
+.?AVbad_alloc@std@@
+.?AVbad_cast@std@@
+.?AVexception@std@@
+.?AVbad_array_new_length@std@@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level='asInvoker' uiAccess='false' />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
+000D0[0b0
+1?1P1Y1}1
+2!2,2C2L2W2t2y2
+3(3M3
+6#7D7o7x7
+8$9e9j9
+;!<'<6<B<
+?9?J?R?
+1A1h2
+3%3+31373L3a3h3n3
+3'494l4u4
+5#5(5.585B5R5b5r5{5
+6I6R6f6l6
+798?8
+9v9{9
+9H:Q:Y:
+;&;H;O;^;h;n;t;z;
+<"<(<.<4<><
+=%=M=
+=">,>
+<1D1H1T1X1t1x1|1
+2t3x3
+444D4H4L4P4T4\4t4x4|4
+5$545D5H5L5d5
+9 9(90989D9d9l9x9
+:@:H:`:h:p:
+;0;8;<;D;X;`;h;p;
+000L0h0
