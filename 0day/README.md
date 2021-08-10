@@ -44,7 +44,7 @@ Got a meterpretershell => then shell => then "bash -i" to get a "bash shell"
 
 OR,
 
-see for manual exploitation: [shellshock in depth](https://securityintelligence.com/articles/shellshock-vulnerability-in-depth/)
+For manual exploitation, see: [shellshock in depth](https://securityintelligence.com/articles/shellshock-vulnerability-in-depth/)
 
 => cd /home/ryan => ls -al 
 --> 
