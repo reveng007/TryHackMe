@@ -46,7 +46,7 @@ OR,
 
 For manual exploitation, see: [shellshock in depth](https://securityintelligence.com/articles/shellshock-vulnerability-in-depth/)
 
-=> cd /home/ryan => ls -al 
+=> cd /home/ryan (name ryan from hosted website from 80) => ls -al 
 --> 
 user.txt => THM{Sh3llSh0ck_r0ckz}
 
