@@ -35,6 +35,9 @@ Last logon                   3/2/2019 5:48:32 PM
 
 OR, to be specific
 
+/B - Beginning
+/C - string to search
+
 ```
 > net user john | findstr /B /C:"Last logon"                                     
 
