@@ -1,0 +1,53 @@
+1. nmap scan type: Service scan
+>> nmap $IP -sV -vv
+Current Score: 87.480
+
+2. nmap scan type: SYN scan
+>> nmap $IP -sS -vv
+Current Score: (92.810 - 87.480) = 5.3299
+
+3. nmap scan type: NULL scan
+>> nmap $IP -sN -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+4. nmap scan type: FIN scan
+>> nmap $IP -sF -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+5. nmap scan type: Xmas scan
+>> nmap $IP -sX -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+6. nmap scan type: ACK scan
+>> nmap $IP -sA -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+7. nmap scan type: Nmap user-agent Change scan
+>> nmap --script-args http.useragent="TEST" $IP -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+link: https://www.realinfosec.net/hot-cybersecurity-news/nmap-user-agent-set-your-own-permanently/
+
+8. nmap scan type:
+
+Nmap user-agent Change scan with Nmap scripting engine scan
+
+>> nmap --script=vuln --script-args http.useragent="TEST" $IP -vv
+Current Score: (497.160 - 92.810) = 404.35
+
+9. nmap scan type: Nmap fragmentation scan
+>> nmap -f $IP -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+10. nmap scan type: Nmap mtu scan
+>> nmap -mtu 16 $IP -vv
+Current Score: (92.810 - 92.810) = 0 => Evaded!
+
+MAXIMUM Transmission Unit. It is an alias of fragmentation, but here we can specify the scan for a custom amount of packets.
+
+11. nmap scan type: Nmap scripting engine scan
+>> nmap --script=<script name> $IP -vv
+Current Score: Increased to 4378.950 !!
+
+
+Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0
